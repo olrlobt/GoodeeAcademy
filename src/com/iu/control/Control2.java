@@ -7,16 +7,9 @@ public class Control2 {
 	public static void main(String[] args) {
 	
 		int num=0;
-		String wwww ="홀수";
+		char wwww = 'a';
 		
-		System.out.print("입력 : ");
-		Scanner sc = new Scanner(System.in);
-		num = sc.nextInt();
-		
-		if(num%2 == 0) {
-	        wwww = "짝수";
-	      }
-		
+		wwww = 'a' + 1 ;
 		System.out.println(wwww + " 입니당 ");
 		
 	}
