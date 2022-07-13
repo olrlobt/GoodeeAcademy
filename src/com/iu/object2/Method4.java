@@ -6,5 +6,5 @@ public class Method4 {
 		// TODO Auto-generated method stub
 
 	}
-//
+//김대기대기watinh
 }
