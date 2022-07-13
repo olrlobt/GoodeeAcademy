@@ -4,13 +4,41 @@ import java.util.Scanner;
 
 public class StudentService {
 
-	
+	StudentView view = new StudentView();
 	//findStudent
 	
 	
 	
 	//makeStudents 메서드 만들기
-	public void findStudent() {
+	public void findStudent(Student[] students) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("검색할 학생 번호");
+		int check = sc.nextInt();
+		boolean sign = false;
+		int j = 0;
+		for ( int i = 0 ; i <students.length ; i ++ ) {
+			
+			if(students [i].num == check) {
+				
+				j = i;
+				sign = true;
+			}
+			
+			
+		}
+		
+		if(sign == true) {
+			view.viewOne(students[j]);
+			
+		}else {
+			
+			view.viewMessage();
+		}
+		
+		
+		
+		
 		
 	}
 	

@@ -12,13 +12,10 @@ public class StudentView {
 	//학생정보 하나 받아서 출력
 	
 	public void viewMessage() {
-		
+		System.out.println("그런 애는 여기에 없단다");
 	}
 	public void viewOne(Student student) {
-		System.out.println("검색할 학생 번호");
-		int check = sc.nextInt();
 		
-		if(check == student.num) {
 			System.out.println(student.name +"\t"
 					+student.num+"\t"
 					+student.kor+"\t"
@@ -26,7 +23,7 @@ public class StudentView {
 					+student.math+"\t"
 					+student.total+"\t"
 					+student.avg);
-		}
+		
 	}
 	
 	//viewAll
