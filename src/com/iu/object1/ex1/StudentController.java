@@ -3,10 +3,13 @@ package com.iu.object1.ex1;
 import java.util.Scanner;
 
 public class StudentController {
-	//start 메서드를 선언
+	//start 메서드를 선언2
 		public void start() {
 			Scanner sc = new Scanner(System.in);
-		
+			StudentView view = new StudentView();
+			StudentService service = new StudentService();
+			Student [] students = null;
+			
 			boolean check=true;
 			while(check) {
 				System.out.println("1. 학생 정보 입력");
@@ -19,10 +22,11 @@ public class StudentController {
 				switch (select) {
 				case 1: 
 					System.out.println("1");
-					
+					students = service.makestudents();
 					break;
 				case 2 :
 					System.out.println("2");
+					view.viewAll(students);
 					break;
 				case 3 :
 					System.out.println("3");
