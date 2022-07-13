@@ -15,7 +15,7 @@ public class Object3Main1 {
 		System.out.println(" 숫자 입력 " );
 		int num = sc.nextInt();
 		
-		num = rt.makeRandom2(num);
+		num = rt.makeRandom21(num);
 		
 		
 		System.out.println(num);

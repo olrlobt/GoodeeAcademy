@@ -45,7 +45,7 @@ public class ReturnTest {
 	}
 	
 	
-	public int makeRandom2(int num) {
+	public int makeRandom21(int num) {
 		
 		Random random = new Random();
 		num = random.nextInt(num);
@@ -58,7 +58,7 @@ public class ReturnTest {
 	}
 	
 	
-	public int makeRandom() {
+	public int makeRandom1() {
 		
 		Random random = new Random();
 		int num = random.nextInt(50);
@@ -71,7 +71,7 @@ public class ReturnTest {
 	}
 	
 	
-	public void info() {
+	public void info1() {
 		
 		System.out.println("걍 종 료 ");
 		
