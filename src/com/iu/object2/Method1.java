@@ -1,5 +1,11 @@
 package com.iu.object2;
 
-public class Method1 {
+import java.util.Scanner;
 
+public class Method1{
+
+	
+		
+	
+	
 }
