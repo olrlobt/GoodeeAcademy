@@ -40,4 +40,57 @@ public class ReturnTest {
 		System.out.println("실행 후 그냥 종료");
 	}
 
+
+	
+	
+	
+	// 타이틀 예금주 잔액 통장번호
+	public int makeAccount(int num) {
+		
+		Random random = new Random();
+		num = random.nextInt(num);
+		
+		
+		
+		return num;
+		
+		
+	}
+	
+	
+	public int makeRandom21(int num) {
+		
+		Random random = new Random();
+		num = random.nextInt(num);
+		
+		
+		
+		return num;
+		
+		
+	}
+	
+	
+	public int makeRandom1() {
+		
+		Random random = new Random();
+		int num = random.nextInt(50);
+		
+		
+		
+		return num;
+		
+		
+	}
+	
+	
+	public void info1() {
+		
+		System.out.println("걍 종 료 ");
+		
+		
+	}
+	
+	
+	
 }

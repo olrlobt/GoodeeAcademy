@@ -1,24 +1,26 @@
 package com.iu.object3;
 
+import java.util.Scanner;
 
 public class Object3Main1 {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		ReturnTest rt = new ReturnTest();
 		
-	
 		rt.info();
-		int num = rt.makeRandom(); 
 		
-		int [] nums = rt.makeRandom2(4);
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" 숫자 입력 " );
+		int num = sc.nextInt();
+		
+		num = rt.makeRandom21(num);
 		
 		
 		System.out.println(num);
-		System.out.println("======================");
 		
-		for(int i = 0; i<nums.length;i++) {
-			System.out.println(nums[i]);
 		
-		}
 	}
+
 }
