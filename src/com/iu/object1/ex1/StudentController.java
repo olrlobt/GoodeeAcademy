@@ -30,6 +30,7 @@ public class StudentController {
 					break;
 				case 3 :
 					System.out.println("3");
+					view.viewOne(null);;
 					break;
 				case 4 :
 					System.out.println("4");
