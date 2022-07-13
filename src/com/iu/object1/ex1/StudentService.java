@@ -10,7 +10,9 @@ public class StudentService {
 	
 	
 	//makeStudents 메서드 만들기
-	
+	public void findStudent() {
+		
+	}
 	
 	public Student [] makestudents() {
 		System.out.print("학생 수를 입력 해 주십시오. ");
