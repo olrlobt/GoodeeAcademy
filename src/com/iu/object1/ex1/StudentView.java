@@ -1,6 +1,14 @@
 package com.iu.object1.ex1;
 
 public class StudentView {
+	
+	//viewmessage
+	//문자열을 받아서 그 문자열을 출력
+	
+	//viewOne
+	//학생정보 하나 받아서 출력
+	
+	
 	//viewAll
 	//학생들의 정보를 받아서 모든 정보를 출력
 	Student student = new Student();
