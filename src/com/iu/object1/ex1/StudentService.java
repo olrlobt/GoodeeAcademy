@@ -6,8 +6,8 @@ public class StudentService {
 
 	StudentView view = new StudentView();
 	//findStudent
-	
-	
+	//
+	////
 	
 	//makeStudents 메서드 만들기
 	public void findStudent(Student[] students) {
