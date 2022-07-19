@@ -8,8 +8,8 @@ public class StringMain1 {
 		
 	
 		str.studySplit();
-		
-				
+		str.studySplit2();
+		str.studySplit3();	
 				
 	}
 
