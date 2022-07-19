@@ -14,6 +14,7 @@ public class WrapperEx1 {
 	// 	 12-2월 사이 겨울
 	
 	
+	
 	public void Ex1(){
 		Scanner sc = new Scanner(System.in);
 		String str = new String();
