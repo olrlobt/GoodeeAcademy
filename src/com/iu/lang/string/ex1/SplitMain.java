@@ -23,9 +23,15 @@ public class SplitMain {
 			WD1.setPhone(DTO1[3]);
 			
 			WV.view(WD1);
+
 		}
+			
 		
 		
+		
+		int num = 10;
+		String.valueOf(num);
+		System.out.println("String.valueOf(num)" + num);
 		
 		
 		
