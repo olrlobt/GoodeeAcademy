@@ -42,13 +42,5 @@ public class WrapperEx2 {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
