@@ -6,7 +6,7 @@ public class ExceptionMain {
 		System.out.println("메인 시작");
 		Test t1 = new Test();
 		
-		t1.t1();
+		
 		
 		
 		
