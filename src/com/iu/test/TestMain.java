@@ -18,9 +18,9 @@ public class TestMain {
 		RegionsView view = new RegionsView();
 		
 		
+		dao.getDetail("sts");
 		
-		
-		view.view(rdao.getDetail(1));
+		//view.view(rdao.getDetail(1));
 		}
 	
 	

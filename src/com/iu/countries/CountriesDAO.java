@@ -9,20 +9,20 @@ import com.iu.util.DBConnector;
 public class CountriesDAO {
 
 	
-	public void getDetail(String country_id) throws Exception {
+	public void getDetail(String country_name) throws Exception {
 		//1. DB 연결
 		Connection con = DBConnector.getConnection();
 		//2. SQL문 작성
-		String sql = "SELECT * From Countries WHERE country_id=?";
+		String sql = "SELECT * From Countries WHERE country_name='%?%'";
 		//3. 미리 전송
 		PreparedStatement st = con.prepareStatement(sql);
 		//4. ? 겂 새탕 =
-		st.setString(1,country_id);
 		
+		st.setString(1, country_name);
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
-			String rId= rs.getString("country_id");
+			String rId= rs.getString("country_name");
 		
 			
 			System.out.println(rId);
