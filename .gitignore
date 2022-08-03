@@ -119,4 +119,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
+DBConnector.java
+
+
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
