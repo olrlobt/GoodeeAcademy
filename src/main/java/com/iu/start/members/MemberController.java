@@ -31,11 +31,19 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(BankMembersDTO bankMembersDTO) {
-		System.out.println("로그인 실행");
+	public String login(BankMembersDTO bankMembersDTO,Model model) throws Exception {
+		System.out.println(" DB 로그인 실행");
+		
+		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		bankMembersDTO=bankMembersDAO.getLogin(bankMembersDTO);
+		model.addAttribute("log",bankMembersDTO);
+		System.out.println();
+		
 		
 		
 		return "redirect:/";
+		
+		
 		
 	}
 	

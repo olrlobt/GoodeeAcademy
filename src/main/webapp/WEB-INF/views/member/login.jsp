@@ -4,28 +4,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>NAVER</title>
 </head>
 <style>
     .align-center {text-align: center;}
+    
+    
+    
 </style>
 <body>
-	<h1> Login Page </h1>
 	
 	
+	<div  style="background: url('/resources/images/loginpage.png'); background-repeat: no-repeat; position: relative;
+	height: 600px; margin:0 auto; width: 500px;
+	">
+		
+		
+		
+		<form action="./login" method = "post"  >
+		<div style="position: absolute; top: 190px; left: 30px; background: url('/resources/images/loginID.png'); background-repeat:no-repeat; height: 50px;width: 410px;border: 0; ">
+		<input type="text" name="ID" placeholder="아이디" style="width: 300px; border: 0;  margin-left: 50px; margin-top: 15px;"></div>
+		<div style="position: absolute; top: 240px; left: 30px; background: url('/resources/images/loginPW.png'); background-repeat:no-repeat; height: 50px;width: 410px;border: 0;">
+		<input type="text" name="PW" placeholder="비밀번호" style="width: 300px; border: 0;  margin-left: 50px; margin-top: 15px;"></div>
+		<div style="position: absolute; top: 355px; left: 30px; ">
+		<input type="submit" name="login" value="" style="background: url('/resources/images/login.png'); background-repeat:no-repeat; height: 60px ; width: 410px;border: 0"></div>
+		</form>
+		
+		<form action="./join" method = "get"  >
+		<div style="position: absolute; top: 435px; left: 70px; " >
+		<input type="submit" name="join" value="" style="background: url('/resources/images/join.png'); background-repeat: no-repeat; height: 30px;width: 290px;border: 0"></div>
+		<!-- <div style="position: absolute; top: 400px; left: 60px;"><img src = "/resources/images/loginPW.png"></div> -->
+		</form>
+	<div><h1></h1></div>
+	<div><h1></h1></div>
 	
-	<form action="./login" method = "post" class="align-center">
-        <h1>Login Page</h1>
-        <img src="/chunsik.png/" width="200dp"><br>
-        <a href="/index.jsp">Index Page</a><br>
-        ID를 입력하세요<br>
-        <input type="text" name="id" placeholder="id를 입력하세요"><br>
-        PW를 입력하세요<br>
-        <input type="text" name="pw" placeholder="pw를 입력하세요"><br>
-
-        <input type="submit" name="login" value="로그인">
-        <input type="button" name="join" value="회원가입" onclick="location.href='study_form_join.html'">
-    </form>
+	
+	</div>
+	
+	<!-- <img src = "/resources/images/loginpage.png"> -->
+        
+        
+  
 	
 </body>
 </html>

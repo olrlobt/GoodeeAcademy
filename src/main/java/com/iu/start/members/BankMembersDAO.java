@@ -67,4 +67,35 @@ public class BankMembersDAO implements MembersDAO{
 		
 	}
 	
+	
+	public BankMembersDTO getLogin(BankMembersDTO bankMembersDTO) throws Exception{
+		
+		Connection con = DBConnector.getConnection();
+		
+		String sql = "SELECT ID,NAME FROM BANKMEMBERS WHERE ID = ? AND PW = ?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, bankMembersDTO.getID());
+		st.setString(2, bankMembersDTO.getPW());
+		
+		ResultSet rs = st.executeQuery();
+		
+		
+		if(rs.next()) {
+			bankMembersDTO.setID(rs.getString(1));
+			bankMembersDTO.setName(rs.getString(2));
+			
+		}else
+			bankMembersDTO = null;
+		
+		DBConnector.disConnect(rs,st, con);
+		
+		return bankMembersDTO;
+		
+		
+	}
+	
+	
+	
 }

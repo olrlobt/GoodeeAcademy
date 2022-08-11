@@ -118,10 +118,55 @@ public class BankBookDAO implements BookDAO {
 			dto.setBooksale(rs.getBoolean(4));
 			
 		}
-		
-		
-		
+	
 		return dto;
 	}
+
+	@Override
+	public int setUpdate(BankBookDTO bankBookDTO) throws Exception {
+		
+		
+		
+		
+		Connection con = DBConnector.getConnection();
+		String sql = "UPDATE BANKBOOK SET BOOKNAME = ? , BOOKRATE = ? WHERE BOOKNUM = ?";
+		
+		PreparedStatement st =  con.prepareStatement(sql);
+		
+		
+		
+		st.setString(1,bankBookDTO.getBookname() );
+		st.setDouble(2, bankBookDTO.getBookrate() );
+		st.setLong(3, bankBookDTO.getBooknum() );
+		
+		int result = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);	
+		return result;
+		
+	}
+	
+	public int setDelete(BankBookDTO bankBookDTO) throws Exception {
+		
+		
+		
+		
+		Connection con = DBConnector.getConnection();
+		String sql = "DELETE BANKBOOK WHERE BOOKNUM = ?";
+		
+		PreparedStatement st =  con.prepareStatement(sql);
+		
+		
+		
+		st.setLong(1,bankBookDTO.getBooknum() );
+		
+		
+		int result = st.executeUpdate();
+		
+		DBConnector.disConnect(st, con);	
+		return result;
+		
+	}
+	
 
 }

@@ -7,14 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> Search Page 입니다</h1>
 	
-	<form method = "post">
-		검색할 ID<input type ="text" name = "search"><br>
+	
+<div class = "align-center" style="background: url('/resources/images/home.png'); background-repeat: no-repeat; background-size: fill;
+	position: relative;">
+
+		<form method = "post">
+			<input type ="text" name = "search"><br>
 		<input type="submit">
 	
 	</form>
+</div>
 	
-	
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+..
+
 </body>
 </html>

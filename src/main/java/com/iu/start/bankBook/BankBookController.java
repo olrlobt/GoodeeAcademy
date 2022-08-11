@@ -90,4 +90,46 @@ public class BankBookController {
 		
 	}
 	
+	@RequestMapping(value = "update",method = RequestMethod.GET)
+	public ModelAndView update(BankBookDTO bankBookDTO,Model model) throws Exception {
+		System.out.println("UPDATE 실행");
+		
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		System.out.println(bankBookDTO.getBooknum());
+		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("update",bankBookDTO);
+		mv.setViewName("bankbook/update");
+		
+		return mv;
+		
+		
+	}
+	
+	@RequestMapping(value = "update",method = RequestMethod.POST)
+	public String update(BankBookDTO bankBookDTO) throws Exception {
+		System.out.println("UPDATE POST 실행");
+		
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		int result = bankBookDAO.setUpdate(bankBookDTO);
+		
+		System.out.println(result);
+		
+		return "redirect:./list";
+	}
+	
+	@RequestMapping(value = "delete",method = RequestMethod.GET)
+	public String delete(BankBookDTO bankBookDTO) throws Exception {
+		System.out.println("DELETE 실행");
+		
+		BankBookDAO bankBookDAO = new BankBookDAO();
+		int result = bankBookDAO.setDelete(bankBookDTO);
+		
+		System.out.println(result);
+		
+		return "redirect:./list";
+	}
+	
+	
 }
