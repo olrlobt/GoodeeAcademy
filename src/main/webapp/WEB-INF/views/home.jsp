@@ -9,6 +9,22 @@
 	Hello world!  
 </h1>
 
+<img src = "resources/images/loginpage.png">
+
+
+
+<a href= "./member/login" > <img src = "resources/images/login.png"> </a>
+
+<a href= "./member/join"> Join </a>
+
+<a href= "/bankbook/list"> list </a>
+
+<a href= "./bankbook/detail"> detail </a>
+<a href= "./bankbook/add"> Add </a>
+
+<br>
+
+<a href= "./member/search" > Search </a>
 
 <a> Login </a>
 <P>  The time on the server is ${serverTime}. </P>
