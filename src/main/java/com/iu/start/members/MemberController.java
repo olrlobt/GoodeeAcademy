@@ -1,10 +1,15 @@
 package com.iu.start.members;
 
+import java.lang.ProcessBuilder.Redirect;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller 
 @RequestMapping(value = "/member/*")
@@ -16,12 +21,21 @@ public class MemberController {
 	// @ : 설명 + 실행
 	
 	// /member/login 실행해야되는 순수 메소드
-	@RequestMapping(value = "login")
+	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login() {
 		System.out.println("로그인 실행");
 		
 		
 		return "member/login";
+		
+	}
+	
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String login(BankMembersDTO bankMembersDTO) {
+		System.out.println("로그인 실행");
+		
+		
+		return "redirect:/";
 		
 	}
 	
@@ -39,6 +53,8 @@ public class MemberController {
 	public String join(BankMembersDTO bankmembers) throws Exception {
 		System.out.println("회원가입  POST 실행");
 		
+		
+		
 //		BankMembersDTO bankMembersDTO = new BankMembersDTO();
 //		bankMembersDTO.setID(request.getParameter("id"));
 //		bankMembersDTO.setPW(request.getParameter("pw"));
@@ -51,8 +67,33 @@ public class MemberController {
 		
 //		System.out.println(result);
 		
-		return "member/join";
+		return "redirect:/member/login";
+		
+	}
+	@RequestMapping(value = "search", method = RequestMethod.GET)
+	public void getSearchByID() throws Exception{
+		System.out.println("SEARCH 실행");
 		
 	}
 	
+	@RequestMapping(value = "search", method = RequestMethod.POST)
+	public ModelAndView getSearchByID(String search) throws Exception{
+		System.out.println("SEARCH  post 실행");
+		
+		ModelAndView mv = new ModelAndView();
+		BankMembersDAO bankMembersDAO = new BankMembersDAO();
+		ArrayList<BankMembersDTO> bankmembers = new ArrayList<BankMembersDTO>();
+		bankmembers = bankMembersDAO.getSearchByID(search);
+		
+		mv.setViewName("member/list");
+		mv.addObject("search",bankmembers);
+		
+		return mv;
+	}
+	@RequestMapping(value = "list", method = RequestMethod.GET)
+	public String list() throws Exception{
+		System.out.println("List 실행");
+		
+		return "member/list";
+	}
 }

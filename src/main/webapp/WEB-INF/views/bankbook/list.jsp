@@ -18,11 +18,11 @@
 	<h1> List page </h1>
 	
 	<a href="./detail">detail</a>
-	
+	<a href="./add">ADD </a>
 	<table border = 1>
 		<thead>
 			<tr>
-				<th>Nmae</th><th>Rate</th>
+				<th>Name</th><th>Rate</th>
 			</tr>
 		</thead>
 			
