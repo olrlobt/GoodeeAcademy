@@ -1,5 +1,9 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+
+
 <html>
 <head>
 	<title>Home</title>
@@ -9,7 +13,7 @@
 	Hello world!  
 </h1>
 
-<img src = "resources/images/loginpage.png">
+<img src = "resources/images/chunsik.png" width="500dx">
 
 
 
@@ -26,7 +30,6 @@
 
 <a href= "./member/search" > Search </a>
 
-<a> Login </a>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>

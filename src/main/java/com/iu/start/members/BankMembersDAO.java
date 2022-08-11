@@ -14,6 +14,8 @@ public class BankMembersDAO implements MembersDAO{
 	@Override
 	public int setJoin(BankMembersDTO bankMembersDTO) throws Exception {
 		
+		
+		
 		Connection con = DBConnector.getConnection();
 		String sql = "INSERT INTO BANKMEMBERS VALUES (?,?,?,?,?)";
 		
