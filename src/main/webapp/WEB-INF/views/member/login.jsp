@@ -23,9 +23,9 @@
 		
 		<form action="./login" method = "post"  >
 		<div style="position: absolute; top: 190px; left: 30px; background: url('/resources/images/loginID.png'); background-repeat:no-repeat; height: 50px;width: 410px;border: 0; ">
-		<input type="text" name="ID" placeholder="아이디" style="width: 300px; border: 0;  margin-left: 50px; margin-top: 15px;"></div>
+		<input type="text" name="ID" value="ID1" placeholder="아이디" style="width: 300px; border: 0;  margin-left: 50px; margin-top: 15px;"></div>
 		<div style="position: absolute; top: 240px; left: 30px; background: url('/resources/images/loginPW.png'); background-repeat:no-repeat; height: 50px;width: 410px;border: 0;">
-		<input type="text" name="PW" placeholder="비밀번호" style="width: 300px; border: 0;  margin-left: 50px; margin-top: 15px;"></div>
+		<input type="text" name="PW" value="PW1" placeholder="비밀번호" style="width: 300px; border: 0;  margin-left: 50px; margin-top: 15px;"></div>
 		<div style="position: absolute; top: 355px; left: 30px; ">
 		<input type="submit" name="login" value="" style="background: url('/resources/images/login.png'); background-repeat:no-repeat; height: 60px ; width: 410px;border: 0"></div>
 		</form>

@@ -11,9 +11,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> List Page Search 결과 입니다</h1>
+	<div style="background: url('/resources/images/searchlist.png'); background-repeat: no-repeat; background-size: fill;
+	position: relative; height: 800px; width: 1200px;
+    margin: 0 auto; ">
 	
-	<table border=1>
+	
+	<table border=1 style="position: absolute; top: 180px; left: 70px;">
 		<thead>
 		
 		</thead>
@@ -22,7 +25,7 @@
 				<h3>${pageScope.i}</h3>
 			
 			</c:forEach> --%>
-			<c:forEach items="${requestScope.search}" var="dto">
+			<c:forEach items="${requestScope.search}" var="dto" >
 				<tr>
 					<td>${pageScope.dto.ID}</td>
 					<td>${pageScope.dto.name}</td>
@@ -31,9 +34,15 @@
 				</tr>
 			
 			</c:forEach>
-		
 		</tbody>
 	</table>
+	
+	</div>
+	
+	
+	
+	
+	
 	
 </body>
 </html>

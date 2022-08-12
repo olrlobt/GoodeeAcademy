@@ -52,7 +52,6 @@ public class BankMembersDAO implements MembersDAO{
 		ResultSet rs = st.executeQuery();
 		int i = 0;
 		while(rs.next()) {
-			System.out.println(" i = " + i++);
 			BankMembersDTO bankMembersDTO = new BankMembersDTO();
 			bankMembersDTO.setID(rs.getString(1));
 			bankMembersDTO.setPW(rs.getString(2));
@@ -72,7 +71,7 @@ public class BankMembersDAO implements MembersDAO{
 		
 		Connection con = DBConnector.getConnection();
 		
-		String sql = "SELECT ID,NAME FROM BANKMEMBERS WHERE ID = ? AND PW = ?";
+		String sql = "SELECT ID,NAME,EMAIL FROM BANKMEMBERS WHERE ID = ? AND PW = ?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
@@ -85,7 +84,7 @@ public class BankMembersDAO implements MembersDAO{
 		if(rs.next()) {
 			bankMembersDTO.setID(rs.getString(1));
 			bankMembersDTO.setName(rs.getString(2));
-			
+			bankMembersDTO.setEmail(rs.getString(3));
 		}else
 			bankMembersDTO = null;
 		

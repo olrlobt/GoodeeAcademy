@@ -4,6 +4,7 @@ import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,27 +32,36 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(BankMembersDTO bankMembersDTO,Model model) throws Exception {
+	public String login(HttpServletRequest request,BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println(" DB 로그인 실행");
 		
 		BankMembersDAO bankMembersDAO = new BankMembersDAO();
 		bankMembersDTO=bankMembersDAO.getLogin(bankMembersDTO);
-		model.addAttribute("log",bankMembersDTO);
+		
 		System.out.println();
+		HttpSession session = request.getSession();
+		session.setAttribute("log", bankMembersDTO);
 		
 		
 		
 		return "redirect:/";
+	
+	}
+	
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception{
+		System.out.println("Logout 실행");
 		
+		session.invalidate();
 		
-		
+		return "redirect:/";
 	}
 	
 	
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String join() {
 		System.out.println("회원가입 GET 실행");
-		
+	
 		
 		return "member/join";
 	}
@@ -104,4 +114,7 @@ public class MemberController {
 		
 		return "member/list";
 	}
+	
+	
+	
 }
