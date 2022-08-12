@@ -42,7 +42,7 @@
 		 <img src = "resources/images/logout.png"></a>
 		 <h5 style=" position: absolute; color: #323232;  left: 90px; top: 13px; ">${sessionScope.log.email}</h5> 
 		
-		<a href= "#" style=" position: absolute; left: 5px; top: 5px;"><img alt="" src="resources/images/mypage.png"></a>
+		<a href= "#" style=" position: absolute; left: 5px; top: 5px;"><img alt="" src="/resources/images/mypage.png"></a>
 		
 		
 		
@@ -55,8 +55,8 @@
 </div>
 
 
-<div style= " left: 100px; top: 400px; position: absolute;">
-<a href= "/bankbook/list"> @list  </a>
+<div style= " left: 375px; top: 173px; position: absolute;">
+<a href= "/bankbook/list"><img alt="" src="/resources/images/banklistBtn.png"></a>
 
 </div>
 

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>NAVER:검색</title>
 </head>
 <body>
 	<div style="background: url('/resources/images/searchlist.png'); background-repeat: no-repeat; background-size: fill;
