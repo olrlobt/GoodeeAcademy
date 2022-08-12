@@ -38,7 +38,7 @@
 		 background-repeat: no-repeat; width: 400px; height: 200px;" >
 		 
 		 <h4 style= " position: absolute; left: 90px; top: -4px;">${sessionScope.log.name} 님	</h4> 
-		 <a href= "./member/logout" style="position: absolute;   left: 275px; top: 13px; ">
+		 <a href= "./member/logout" style="position: absolute;   left: 274px; top: 15px; ">
 		 <img src = "resources/images/logout.png"></a>
 		 <h5 style=" position: absolute; color: #323232;  left: 90px; top: 13px; ">${sessionScope.log.email}</h5> 
 		
