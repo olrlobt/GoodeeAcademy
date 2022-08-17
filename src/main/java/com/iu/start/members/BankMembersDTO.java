@@ -1,5 +1,8 @@
 package com.iu.start.members;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BankMembersDTO {
 	
 	

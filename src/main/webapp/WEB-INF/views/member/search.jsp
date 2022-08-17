@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>네이버:검색</title>
 </head>
 <body onclick="history.back()">
 	

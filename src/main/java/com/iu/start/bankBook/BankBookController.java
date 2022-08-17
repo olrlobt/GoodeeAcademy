@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/bankbook/*")
 public class BankBookController {
 	
+	
+	@Autowired
+	private BankBookDAO bankBookDAO;
+	@Autowired
+	private BankBookService bankBookService;
 	
 //	@RequestMapping(value = "list",method = RequestMethod.GET)
 //	public String list(HttpServletRequest request) throws Exception {
@@ -32,8 +38,8 @@ public class BankBookController {
 	public String list(Model model) throws Exception {
 		System.out.println("리스트 실행");
 		
-		BankBookDAO bankBookDAO = new BankBookDAO();
-		ArrayList<BankBookDTO> ar = bankBookDAO.getList();
+		
+		ArrayList<BankBookDTO> ar = bankBookService.getList();
 		
 		model.addAttribute("list",ar);
 		return "bankbook/list";
@@ -53,8 +59,8 @@ public class BankBookController {
 		System.out.println("디테일 실행");
 		ModelAndView mv = new ModelAndView();
 		
-		BankBookDAO bankBookDAO = new BankBookDAO();
-		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
+		
+		bankBookDTO = bankBookService.getDetail(bankBookDTO);
 		
 		
 		mv.setViewName("bankbook/detail");
@@ -78,8 +84,8 @@ public class BankBookController {
 		long milliSecond = System.currentTimeMillis();
 		bankbook.setBooknum(milliSecond);
 		bankbook.setBooksale(true);
-		BankBookDAO bankBookDAO = new BankBookDAO();
-		int result = bankBookDAO.setBankBook(bankbook);
+		
+		int result = bankBookService.setBankBook(bankbook);
 		System.out.println(result);
 		
 		mv.setViewName("redirect:./list");
@@ -94,9 +100,9 @@ public class BankBookController {
 	public ModelAndView update(BankBookDTO bankBookDTO,Model model) throws Exception {
 		System.out.println("UPDATE 실행");
 		
-		BankBookDAO bankBookDAO = new BankBookDAO();
+		
 		System.out.println(bankBookDTO.getBooknum());
-		bankBookDTO = bankBookDAO.getDetail(bankBookDTO);
+		bankBookDTO = bankBookService.getDetail(bankBookDTO);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("update",bankBookDTO);
@@ -111,8 +117,8 @@ public class BankBookController {
 	public String update(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("UPDATE POST 실행");
 		
-		BankBookDAO bankBookDAO = new BankBookDAO();
-		int result = bankBookDAO.setUpdate(bankBookDTO);
+		
+		int result = bankBookService.setUpdate(bankBookDTO);
 		
 		System.out.println(result);
 		
@@ -123,8 +129,8 @@ public class BankBookController {
 	public String delete(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("DELETE 실행");
 		
-		BankBookDAO bankBookDAO = new BankBookDAO();
-		int result = bankBookDAO.setDelete(bankBookDTO);
+		
+		int result = bankBookService.setDelete(bankBookDTO);
 		
 		System.out.println(result);
 		

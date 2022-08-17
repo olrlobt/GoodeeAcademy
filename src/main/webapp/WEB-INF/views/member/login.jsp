@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>NAVER</title>
+<title>네이버:로그인</title>
 </head>
 <style>
     .align-center {text-align: center;}

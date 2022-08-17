@@ -6,6 +6,12 @@
 <html>
 <head>
 	<title>NAVER</title>
+	<!--  <meta property="og:url" content="https://192.168.7.39/">
+    <meta property="og:title" content="제목">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://code-study.tistory.com/images/img_share.png">
+    <meta property="og:description" content="본문 내용."> -->
+    
 </head>
 <style>
     .align-center {
