@@ -2,6 +2,9 @@ package com.iu.start.bankaccount;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BankAccountDTO {
 
 	private int accountNum;

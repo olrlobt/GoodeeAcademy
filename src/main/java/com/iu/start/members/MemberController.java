@@ -2,10 +2,12 @@ package com.iu.start.members;
 
 import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
 // << 얘는 controller역할 , container 에게 이 클래스의 객체를 생성 위임
 public class MemberController {
 
+	@Autowired
+	private MembersService membersService;
 	
+	@Autowired
+	private BankMembersDAO bankMembersDAO;
 	// annotation
 	// @ : 설명 + 실행
 	
@@ -35,8 +41,7 @@ public class MemberController {
 	public String login(HttpServletRequest request,BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println(" DB 로그인 실행");
 		
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		bankMembersDTO=bankMembersDAO.getLogin(bankMembersDTO);
+		bankMembersDTO=membersService.getLogin(bankMembersDTO);
 		
 		System.out.println();
 		HttpSession session = request.getSession();
@@ -80,8 +85,7 @@ public class MemberController {
 //		bankMembersDTO.setEmail(request.getParameter("email"));
 //		bankMembersDTO.setPhone(request.getParameter("phone"));
 		
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		int result = bankMembersDAO.setJoin(bankmembers);
+		int result = membersService.setJoin(bankmembers);
 		
 //		System.out.println(result);
 		
@@ -99,9 +103,8 @@ public class MemberController {
 		System.out.println("SEARCH  post 실행");
 		
 		ModelAndView mv = new ModelAndView();
-		BankMembersDAO bankMembersDAO = new BankMembersDAO();
-		ArrayList<BankMembersDTO> bankmembers = new ArrayList<BankMembersDTO>();
-		bankmembers = bankMembersDAO.getSearchByID(search);
+		List<BankMembersDTO> bankmembers = membersService.getSearchByID(search);
+		
 		
 		mv.setViewName("member/list");
 		mv.addObject("search",bankmembers);

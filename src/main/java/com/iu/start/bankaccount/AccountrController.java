@@ -2,6 +2,7 @@ package com.iu.start.bankaccount;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,12 +17,12 @@ import com.iu.start.members.BankMembersDTO;
 @RequestMapping(value = "/bankAccount/*")
 public class AccountrController {
 
-	private BankAccountDAO bankAccountDAO;
+	
+	@Autowired
+	private AccountService accountService;
 	
 	
-	public AccountrController() {
-		this.bankAccountDAO = new BankAccountDAO();
-	}
+
 	
 	
 	@RequestMapping(value = "add", method = RequestMethod.GET)
@@ -34,9 +35,11 @@ public class AccountrController {
 		bankAccountDTO.setUserID(bankMembersDTO.getID());
 		
 		
-		int result = this.bankAccountDAO.add(bankAccountDTO);
+		int result = accountService.add(bankAccountDTO);
 		
 		System.out.println(result);
+		System.out.println(bankAccountDTO.getUserID());
+		System.out.println(bankAccountDTO.getBookNum());
 		
 		return "redirect:../bankbook/list";
 		

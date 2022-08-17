@@ -1,5 +1,8 @@
 package com.iu.start.bankBook;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BankBookDTO {
 
 	private long booknum;

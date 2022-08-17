@@ -1,6 +1,7 @@
 package com.iu.start.bankBook;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface BookDAO {
 
@@ -11,7 +12,7 @@ public interface BookDAO {
 	public int setBankBook(BankBookDTO bankBookDTO) throws Exception;
 	
 	// bank book 조회 최신 순 
-	public ArrayList<BankBookDTO> getList() throws Exception;
+	public List<BankBookDTO> getList() throws Exception;
 	
 	public int setChangeSale(BankBookDTO bankBookDTO) throws Exception;
 	
