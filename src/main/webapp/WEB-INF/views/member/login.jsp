@@ -7,7 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Login Page</h1>
+	<div>
+		<ul>
+			<li><a href="/bankbook/list">상품 리스트</a></li>
+			<li><a href="/board/list">게시판</a></li>
+			<li><a href="/member/login">로그인</a></li>
+			<li><a href="/member/join">회원가입</a></li>
+		</ul>
+
+	</div>
+
 	<form action="login" method="post">
 		<div>
 		ID를 입력 : <input type="text" value="AA" name="user_name">
