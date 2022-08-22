@@ -15,6 +15,12 @@ public class BankMembersDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.im.start.BankMembers.BankMembersDAO.";
 	
+	public BankMembersDTO getMyPage(BankMembersDTO bankMembersDTO) throws Exception{
+		
+		return sqlSession.selectOne(NAMESPACE+"getMyPage",bankMembersDTO);
+	}
+	
+	
 	public BankMembersDTO getLogin(BankMembersDTO bankMembersDTO) throws Exception{
 		
 		return sqlSession.selectOne(NAMESPACE+"getLogin",bankMembersDTO);

@@ -45,8 +45,8 @@ public class BankBookController {
 	@RequestMapping(value = "add",method = RequestMethod.POST)
 	public String Add(BankBookDTO bankBookDTO) throws Exception {
 		System.out.println("add post 실행");
-		bankBookDTO.setBook_Sale(false);
-		bankBookDTO.setBook_Num(System.currentTimeMillis());
+		bankBookDTO.setBookSale(false);
+		bankBookDTO.setBookNum(System.currentTimeMillis());
 		
 		
 		bankBookService.setBankBook(bankBookDTO);

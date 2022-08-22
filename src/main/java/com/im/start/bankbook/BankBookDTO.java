@@ -1,41 +1,49 @@
 package com.im.start.bankbook;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
+
+import com.im.start.bankaccount.BankAccountDTO;
 
 @Component
 public class BankBookDTO {
 
-	private long Book_Num;
-	private String Book_Name;
-	private double Book_Rate;
-	private boolean Book_Sale;
+	private long BookNum;
+	private String BookName;
+	private double BookRate;
+	private boolean BookSale;
+	private List<BankAccountDTO> bankAccountDTOs;
+	
+	
+	public long getBookNum() {
+		return BookNum;
+	}
+	public void setBookNum(long bookNum) {
+		BookNum = bookNum;
+	}
+	public String getBookName() {
+		return BookName;
+	}
+	public void setBookName(String bookName) {
+		BookName = bookName;
+	}
+	public double getBookRate() {
+		return BookRate;
+	}
+	public void setBookRate(double bookRate) {
+		BookRate = bookRate;
+	}
+	public boolean isBookSale() {
+		return BookSale;
+	}
+	public void setBookSale(boolean bookSale) {
+		BookSale = bookSale;
+	}
 	
 	
 	
-	public long getBook_Num() {
-		return Book_Num;
-	}
-	public void setBook_Num(long book_Num) {
-		Book_Num = book_Num;
-	}
-	public String getBook_Name() {
-		return Book_Name;
-	}
-	public void setBook_Name(String book_Name) {
-		Book_Name = book_Name;
-	}
-	public double getBook_Rate() {
-		return Book_Rate;
-	}
-	public void setBook_Rate(double book_Rate) {
-		Book_Rate = book_Rate;
-	}
-	public boolean isBook_Sale() {
-		return Book_Sale;
-	}
-	public void setBook_Sale(boolean book_Sale) {
-		Book_Sale = book_Sale;
-	}
+
 	
 	
 }

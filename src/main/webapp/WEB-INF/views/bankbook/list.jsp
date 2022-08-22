@@ -19,11 +19,11 @@
 			
 				<c:forEach items="${list}" var="ar" >
 				<tr>
-					<td><a href="./detail?book_Num=${ar.book_Num}">${ar.book_Num}</a></td>
-					<td>${ar.book_Name}</td>
+					<td><a href="./detail?bookNum=${ar.bookNum}">${ar.bookNum}</a></td>
+					<td>${ar.bookName}</td>
 					
-					<td>${ar.book_Rate}</td>
-					<td>${ar.book_Sale}</td>
+					<td>${ar.bookRate}</td>
+					<td>${ar.bookSale}</td>
 					
 				</tr>
 				</c:forEach>

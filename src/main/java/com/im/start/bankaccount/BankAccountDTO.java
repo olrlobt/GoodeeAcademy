@@ -4,19 +4,28 @@ import java.sql.Date;
 
 import org.springframework.stereotype.Component;
 
+import com.im.start.bankbook.BankBookDTO;
+
 @Component
 public class BankAccountDTO {
 
-	private int accountNum;
+	private long accountNum;
 	private String userID;
 	private long bookNum;
 	private Date accountDate;
+	private BankBookDTO bankBookDTO;
 	
 	
-	public int getAccountNum() {
+	public BankBookDTO getBankBookDTO() {
+		return bankBookDTO;
+	}
+	public void setBankBookDTO(BankBookDTO bankBookDTO) {
+		this.bankBookDTO = bankBookDTO;
+	}
+	public long getAccountNum() {
 		return accountNum;
 	}
-	public void setAccountNum(int accountNum) {
+	public void setAccountNum(long accountNum) {
 		this.accountNum = accountNum;
 	}
 	public String getUserID() {

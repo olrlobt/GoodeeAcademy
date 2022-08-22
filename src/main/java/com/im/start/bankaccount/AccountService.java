@@ -8,6 +8,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.im.start.BankMembers.BankMembersDTO;
+
 
 @Service
 public class AccountService {
@@ -16,10 +18,10 @@ public class AccountService {
 	private BankAccountDAO bankAccountDAO;
 	
 	
-	public List<BankAccountDTO> getList(){
+	public List<BankAccountDTO> getList(BankMembersDTO bankMembersDTO){
 		
 		
-		return bankAccountDAO.getList();
+		return bankAccountDAO.getList(bankMembersDTO);
 	}
 	
 	public int add(BankAccountDTO bankAccountDTO) throws Exception {

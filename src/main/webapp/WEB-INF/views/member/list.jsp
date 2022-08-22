@@ -23,9 +23,10 @@
 		</thead>
 		<tbody>
 			
-			<c:forEach items="${list }" var="dto">
+			<c:forEach items="${list}" var="dto">
 				<tr>
-					<td>${pageScope.dto.user_name }</td>
+					
+					<td>${pageScope.dto.ID }</td>
 					<td>${pageScope.dto.name }</td>
 					<td>${pageScope.dto.email }</td>
 					<td>${pageScope.dto.phone }</td>

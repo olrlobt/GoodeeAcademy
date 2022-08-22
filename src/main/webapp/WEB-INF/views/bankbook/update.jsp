@@ -13,9 +13,9 @@
 	<form action="./update" method="post">
 	
 		
-		<input type="text" name="book_Num" value="${update.book_Num}">
-		<input type="text" name="book_Name" value="${update.book_Name}">
-		<input type="text" name="book_Rate" value="${update.book_Rate}">
+		<input type="text" name="bookNum" value="${update.bookNum}">
+		<input type="text" name="bookName" value="${update.bookName}">
+		<input type="text" name="bookRate" value="${update.bookRate}">
 		<input type="submit">
 	
 	</form>

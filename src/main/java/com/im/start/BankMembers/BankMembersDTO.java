@@ -1,23 +1,38 @@
 package com.im.start.BankMembers;
 
+import java.util.List;
+
+import com.im.start.bankaccount.BankAccountDTO;
+
 public class BankMembersDTO {
 	
-	private String user_name;
-	private String password;
+	private String ID;
+	
+	
+	private String PW;
 	private String name;
 	private String email;
 	private String phone;
-	public String getUser_name() {
-		return user_name;
+	private List<BankAccountDTO> accountDTOs;
+	
+
+	public List<BankAccountDTO> getAccountDTOs() {
+		return accountDTOs;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setAccountDTOs(List<BankAccountDTO> accountDTOs) {
+		this.accountDTOs = accountDTOs;
 	}
-	public String getPassword() {
-		return password;
+	public String getID() {
+		return ID;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setID(String iD) {
+		ID = iD;
+	}
+	public String getPW() {
+		return PW;
+	}
+	public void setPW(String pW) {
+		PW = pW;
 	}
 	public String getName() {
 		return name;

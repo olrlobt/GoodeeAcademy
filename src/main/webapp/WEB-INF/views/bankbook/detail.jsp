@@ -13,11 +13,11 @@
 		<thead></thead>
 		<tbody>
 				<tr>
-					<td>${detail.book_Num}</td>
-					<td>${detail.book_Name}</td>
+					<td>${detail.bookNum}</td>
+					<td>${detail.bookName}</td>
 					
-					<td>${detail.book_Rate}</td>
-					<td>${detail.book_Sale}</td>
+					<td>${detail.bookRate}</td>
+					<td>${detail.bookSale}</td>
 					
 				</tr>
 		</tbody>
@@ -27,7 +27,7 @@
 	</table>
 	
 	
-	<a href="./delete?book_Num=${detail.book_Num}"> Delete </a>
-	<a href="./update?book_Num=${detail.book_Num}"> Update </a>
+	<a href="./delete?bookNum=${detail.bookNum}"> Delete </a>
+	<a href="./update?bookNum=${detail.bookNum}"> Update </a>
 </body>
 </html>

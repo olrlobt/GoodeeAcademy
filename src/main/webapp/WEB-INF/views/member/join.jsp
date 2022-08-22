@@ -13,9 +13,9 @@
 <c:import url="../template/header.jsp"></c:import>
 	
 	<form action="join" method="post">
-		ID를 입력 : <input type="text" name="USER_NAME">
+		ID를 입력 : <input type="text" name="ID">
 		<div>
-		비밀번호를 입력 : <input type="text" name="PASSWORD">
+		비밀번호를 입력 : <input type="text" name="PW">
 		</div>
 		<div>
 		이름을 입력 : <input type="text" name="NAME">

@@ -119,10 +119,10 @@
 			<div class="modal-body">
 				<form action="login" method="post">
 					<div class="form-group">
-						<input type="text" class="form-control" name="user_name" placeholder="Username" required="required">		
+						<input type="text" class="form-control" name="ID" placeholder="Username" value = "ID1" required="required">		
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control" name="password" placeholder="Password" required="required">	
+						<input type="password" class="form-control" name="PW" placeholder="Password" value="PW1" required="required">	
 					</div>        
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>

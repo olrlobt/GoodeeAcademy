@@ -1,7 +1,9 @@
 package com.im.start.BankMembers;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.im.start.bankaccount.AccountService;
+import com.im.start.bankaccount.BankAccountDTO;
 
 @Controller
 @RequestMapping(value="/member/*")
@@ -16,6 +22,11 @@ public class BankMembersController {
 	
 	@Autowired
 	private BankMembersService bankMembersService;
+//	@Autowired
+//	private AccountService accountService;
+	
+	
+	
 	
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login() {
@@ -48,10 +59,10 @@ public class BankMembersController {
 	
 	//Post
 	@RequestMapping(value = "join", method = RequestMethod.POST)
-	public String join(String USER_NAME,String PASSWORD,String NAME, String EMAIL, String PHONE) throws Exception {
+	public String join(String ID,String PW,String NAME, String EMAIL, String PHONE) throws Exception {
 		BankMembersDTO bankMembersDTO = new BankMembersDTO();
-		bankMembersDTO.setUser_name(USER_NAME);
-		bankMembersDTO.setPassword(PASSWORD);
+		bankMembersDTO.setID(ID);
+		bankMembersDTO.setPW(PW);
 		bankMembersDTO.setName(NAME);
 		bankMembersDTO.setEmail(EMAIL);
 		bankMembersDTO.setPhone(PHONE);
@@ -78,8 +89,30 @@ public class BankMembersController {
 	public String getSearchByID(String search,Model model) throws Exception {
 		System.out.println("search Post 실행");
 		List<BankMembersDTO> ar = bankMembersService.getSearchByID(search);
+		
+		
 		model.addAttribute("list", ar);
 		return "member/list";
 	}
+	
+	@RequestMapping(value = "myPage", method = RequestMethod.GET)
+	public ModelAndView myPage(HttpSession session) throws Exception{
+		System.out.println("my page get 실행");
+		ModelAndView mv = new ModelAndView();
+		BankMembersDTO bankMembersDTO = (BankMembersDTO) session.getAttribute("member");
+		
+//		Map<String, Object> map = bankMembersService.getMyPage(bankMembersDTO);
+//		mv.addObject("map",map);
+		bankMembersDTO = bankMembersService.getMyPage(bankMembersDTO);
+	//	List<BankAccountDTO> ar = accountService.getList(bankMembersDTO);
+		
+		//mv.addObject("list",ar );
+		mv.addObject("dto",bankMembersDTO);
+		
+		
+		mv.setViewName("member/myPage");
+		return mv;
+	}
+
 
 }

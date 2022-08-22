@@ -6,13 +6,10 @@
 	<typeAliases>
 		<typeAlias type="com.im.start.BankMembers.BankMembersDTO" alias="BankMembersDTO"/>
 		<typeAlias type="java.lang.String" alias="String"/>
-		<typeAlias type="com.im.start.bankbook.BankBookDTO" alias="BankBookDTO"/>
+		<typeAlias type="java.util.List" alias="List"/>
 		
-	
-	
-	
-	
-	
+		<typeAlias type="com.im.start.bankbook.BankBookDTO" alias="BankBookDTO"/>
+		<typeAlias type="com.im.start.bankaccount.BankAccountDTO" alias="BankAccountDTO"/>
 	</typeAliases>
 
 

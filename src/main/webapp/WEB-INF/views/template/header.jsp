@@ -24,7 +24,7 @@
 		                    
 		                    <c:otherwise>
 		                    	
-		                   		<a href="member/login#myModal" class="nav-link active" data-toggle="modal">로그인</a>
+		                   		<a class="nav-link active" href="/member/login">로그인</a>
 			                    <a class="nav-link active" href="/member/join">회원가입</a>
 		                    </c:otherwise>
 			                    

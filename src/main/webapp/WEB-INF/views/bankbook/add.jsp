@@ -11,8 +11,8 @@
 	
 	<form action="./add" method="post">
 	
-		<input type="text" name="book_Name">
-		<input type="text" name="book_Rate">
+		<input type="text" name="bookName">
+		<input type="text" name="bookRate">
 		<input type="submit">
 	
 	</form>
