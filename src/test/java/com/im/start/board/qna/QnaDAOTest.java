@@ -19,17 +19,17 @@ public class QnaDAOTest extends MyAbstractTest{
 	private NoticeDAO dao;
 	
 
-	@Test
-	public void getListTest() throws Exception{
-		
-		List<BoardDTO> ar = new ArrayList<BoardDTO>();
-		dao.getList();
-		ar = dao.getList();
-		
-		assertNotEquals(0,ar.size());
-		
-	}
-	
+//	@Test
+//	public void getListTest() throws Exception{
+//		
+//		List<BoardDTO> ar = new ArrayList<BoardDTO>();
+//		dao.getList();
+//		ar = dao.getList();
+//		
+//		assertNotEquals(0,ar.size());
+//		
+//	}
+//	
 	@Test
 	public void getDetail() throws Exception{
 		NoticeDTO noticeDTO = new NoticeDTO();

@@ -16,17 +16,17 @@ public class NoticeDAOTest extends MyAbstractTest {
 	@Autowired
 	private NoticeDAO dao;
 	
-
-	@Test
-	public void getListTest() throws Exception{
-		
-		List<BoardDTO> ar = new ArrayList<BoardDTO>();
-		dao.getList();
-		ar = dao.getList();
-		
-		assertNotEquals(0,ar.size());
-		
-	}
+//
+//	@Test
+//	public void getListTest() throws Exception{
+//		
+//		List<BoardDTO> ar = new ArrayList<BoardDTO>();
+//		dao.getList();
+//		ar = dao.getList();
+//		
+//		assertNotEquals(0,ar.size());
+//		
+//	}
 	
 	@Test
 	public void getDetail() throws Exception{
@@ -38,20 +38,24 @@ public class NoticeDAOTest extends MyAbstractTest {
 		assertNotNull(noticeDTO);
 		
 	}
-	@Test
-	public void setAdd() throws Exception{
-		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setContents("hihi");
-		noticeDTO.setTitle("hihi");
-		noticeDTO.setWriter("hihi");
-		
-		int result = dao.setAdd(noticeDTO);
-		
-		assertEquals(1, result);
+//	@Test
+//	public void setAdd() throws Exception{
+//		
+//		for(int i = 0 ; i < 100; i ++ ) {
+//			NoticeDTO noticeDTO = new NoticeDTO();
+//			noticeDTO.setTitle("Title" + i);
+//			noticeDTO.setContents("contents" + i);
+//			noticeDTO.setWriter("writer" + i);
+//			
+//			int result = dao.setAdd(noticeDTO);
+//			if(i%10 ==0) { 
+//				Thread.sleep(500);
+//			}
+//		}
+//		System.out.println("finish");
+//	}
+//	
 	
-		
-		
-	}
 	@Test
 	public void setUpdate() throws Exception{
 		
@@ -80,6 +84,16 @@ public class NoticeDAOTest extends MyAbstractTest {
 		assertEquals(1, result);
 		
 	}
+	
+	
+	@Test
+	public void getNumTest() throws Exception {
+		
+		Long result = dao.getNum();
+		
+		System.out.println("result = " + result);
+	}
+	
 	
 	
 //	public BoardDTO getDetail(BoardDTO boardDTO) throws Exception;

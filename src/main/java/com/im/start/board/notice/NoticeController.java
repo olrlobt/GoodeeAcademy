@@ -6,8 +6,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.im.start.board.impl.BoardDTO;
@@ -20,15 +22,26 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	
+	@ModelAttribute("board")
+	public String getBoard() {
+		
+		
+		return "Notice";
+	}
+	
+	
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView getList() throws Exception{
+	public ModelAndView getList(@RequestParam(defaultValue = "1")Long page) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		List<BoardDTO> ar = noticeService.getList();
+		List<BoardDTO> ar = noticeService.getList(page);
 		
 		
 		mv.addObject("list",ar);
-		mv.setViewName("notice/list");
+		mv.addObject("page",page);
+		
+		
+		mv.setViewName("board/list");
 		return mv;
 	}
 	//글조회
@@ -39,7 +52,7 @@ public class NoticeController {
 		
 		
 		
-		return "notice/detail";
+		return "board/detail";
 		
 	}
 	//글쓰기
@@ -63,7 +76,7 @@ public class NoticeController {
 		
 		boardDTO = noticeService.getDetail(boardDTO);
 		mv.addObject(boardDTO);
-		mv.setViewName("notice/update");
+		mv.setViewName("board/update");
 		
 		return mv;
 		

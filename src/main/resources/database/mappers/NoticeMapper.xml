@@ -6,8 +6,11 @@
 		    
 		    <mapper namespace="com.im.start.board.notice.NoticeDAO">
 		    
-		    	<select id="getList" resultType="NoticeDTO" >
-		    	SELECT * FROM NOTICE
+		    	<select id="getList" parameterType="Map" resultType="NoticeDTO" >
+		    	SELECT * FROM
+				( SELECT ROWNUM R,N.*
+				 FROM (SELECT * FROM NOTICE order by num desc) N)
+				 WHERE R BETWEEN #{startRow} AND #{lastRow}
 		    	</select>
 		    	
 		    	<select id="getDetail" parameterType="NoticeDTO" resultType="NoticeDTO">
@@ -26,7 +29,9 @@
 		    	DELETE NOTICE WHERE NUM = #{num}
 		    	</delete>
 		    	
-		    	
+		    	<select id="getNum"  resultType="Long">
+		    	SELECT COUNT(NUM) FROM NOTICE
+		    	</select>
 		    
 		    
 		    </mapper>

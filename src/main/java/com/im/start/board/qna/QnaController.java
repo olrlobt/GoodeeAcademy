@@ -22,14 +22,15 @@ public class QnaController {
 	
 	
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView getList() throws Exception{
+	public ModelAndView getList(Long page) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		List<BoardDTO> ar = qnaService.getList();
+		List<BoardDTO> ar = qnaService.getList(page);
 		
 		
 		mv.addObject("list",ar);
-		mv.setViewName("qna/list");
+		mv.addObject("board","QnA");
+		mv.setViewName("board/list");
 		return mv;
 	}
 	//글조회
@@ -40,7 +41,7 @@ public class QnaController {
 		
 		
 		
-		return "qna/detail";
+		return "board/detail";
 		
 	}
 	//글쓰기
