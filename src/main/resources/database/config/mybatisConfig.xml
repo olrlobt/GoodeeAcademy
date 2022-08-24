@@ -10,6 +10,9 @@
 		
 		<typeAlias type="com.im.start.bankbook.BankBookDTO" alias="BankBookDTO"/>
 		<typeAlias type="com.im.start.bankaccount.BankAccountDTO" alias="BankAccountDTO"/>
+		<typeAlias type="com.im.start.board.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.im.start.board.qna.QnaDTO" alias="QnaDTO"/>
+		<typeAlias type="com.im.start.board.impl.BoardDTO" alias="BoardDTO"/>
 	</typeAliases>
 
 
