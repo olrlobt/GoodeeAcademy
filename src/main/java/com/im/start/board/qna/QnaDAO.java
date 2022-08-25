@@ -22,6 +22,18 @@ public class QnaDAO implements BoardDAO{
 	private String NAMESPACE = "com.im.start.board.qna.QnaDAO.";
 	
 	
+	public int setStepUpdate(QnaDTO qnaDTO) throws Exception{
+		
+		
+		return sqlSession.update(NAMESPACE+"setStepUpdate",qnaDTO);
+	}
+	
+	public int setReplyAdd(QnaDTO qnaDTO) throws Exception{
+		
+
+		return sqlSession.update(NAMESPACE+"setReplyAdd",qnaDTO);
+	}
+	
 	
 	@Override
 	public BoardDTO getDetail(BoardDTO boardDTO) throws Exception {

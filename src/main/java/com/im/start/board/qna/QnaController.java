@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -105,15 +106,23 @@ public class QnaController {
 	}
 	
 	@GetMapping("reply")
-	public ModelAndView setReply() throws Exception{
+	public ModelAndView setReply(QnaDTO qnaDTO,ModelAndView mv) throws Exception{
 		
-		ModelAndView mv = new ModelAndView();
+		mv.addObject("boardDTO",qnaDTO);
 		mv.setViewName("board/reply");
 		
 		return mv;	
 	}
 	
-	
+	@PostMapping("reply")
+	public String setReply(QnaDTO qnaDTO) throws Exception{
+		
+		qnaService.setReply(qnaDTO);
+		
+		return "redirect:./list";
+		
+		
+	}
 	
 	
 	

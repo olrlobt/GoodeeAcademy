@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Reply Page</title>
+<title>RRR Page</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 </head>
@@ -14,27 +14,42 @@
     .align-center {text-align: center;}
 </style>
 <body>
-<c:import url="../template/header.jsp"></c:import>
 
-<form action ="reply.gang" class="align-center" method="post">
-     <h1 class="align-center">${board }reply</h1>
-  
-  <div class="mb-3 mt-4">
-    <label class="form-label">Title</label>
-    </div>
-    <div>
-    <input type ="text" name ="title"> 
-    </div>
-  <div class="mb-3 mt-4">
-    <label  class="form-label">Contents</label>
-    </div>
-    <div>
-    <input type="text" class="col-lg-2" name="contents">
-  </div>
- 
-  
-  <button type="submit" class="btn btn-primary mt-4">글 게시하기</button>
-</form>
+<c:import url="../template/header.jsp"></c:import>
+	<h1 class="align-center">${board } RRRR</h1>
+	
+	
+	<form action ="./reply" class="align-center" method="post">
+	     
+	  <input type="hidden" name="num" value="${boardDTO.num }">
+    	<div class="mb-3 mt-4">
+	    	<label class="form-label">Title</label>
+    	</div>
+    	
+	    <div>
+	    	<input type ="text" name ="title"> 
+	    </div>
+	    
+    	<div class="mb-3 mt-4">
+	    	<label class="form-label">Writer</label>
+    	</div>
+    	
+	    <div>
+	    	<input type ="text" name ="writer"> 
+	    </div>
+	    
+	    
+	    
+	 	<div class="mb-3 mt-4">
+	    	<label  class="form-label">Contents</label>
+	    </div>
+	    <div>
+	    	<input type="text" class="col-lg-2" name="contents">
+	  	</div>
+	  <button type="submit" class="btn btn-primary mt-4">글 작성</button>
+	  
+	  
+	</form>
 
    
    <c:import url="../template/footer.jsp"></c:import>

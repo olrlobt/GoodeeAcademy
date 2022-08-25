@@ -65,11 +65,15 @@
 	  <tbody class="table-group-divider">
 	  
 	  <c:forEach items="${list}" var="dto">
-	  
+	  	
 	  	<tr>
 	     
 	      <td>${dto.num }</td>
-	      <td><a href = "./detail?num=${dto.num}">${dto.title }</a></td>
+	      <td>
+	      
+	      <c:if test="${board =='QnA' }"><c:forEach begin="1" end="${dto.depth }" >--</c:forEach></c:if>
+	      
+	      <a href = "./detail?num=${dto.num}">${dto.title }</a></td>
 	      <td>${dto.contents }</td>
 	      <td>${dto.writer }</td>
 	      
@@ -127,10 +131,11 @@
 	  	</c:choose>
 	  </ul>
 	</nav>
+	<div><a href="./add" class="btn btn-danger"> Add </a></div>
 </div>
 	
 	
-<a href="./add"> Add </a>
+
 
 	
 	
