@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.im.start.board.impl.BoardDTO;
 import com.im.start.board.impl.BoardService;
+import com.im.start.util.Pager;
 
 @Service
 public class NoticeService implements BoardService{
@@ -16,24 +17,21 @@ public class NoticeService implements BoardService{
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	
+	
+		
+	
+	
 	@Override
-	public List<BoardDTO> getList(Long page) throws Exception {
+	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
 		
-		Long perPage = 15L;
-		Long maxNum = noticeDAO.getNum()/10 + 1;
-		Long StartRow = page*perPage - perPage+1;
-		Long LastRow = page*perPage;
 		
-		Map<String, Long> map = new HashMap<String, Long>();
-		
-		map.put("startRow", StartRow);
-		map.put("lastRow", LastRow);
-		map.put("maxNum", maxNum);
-		
-		// 글 갯수 / perpage + 1
-		
-		return noticeDAO.getList(map);
+	    Long totalCount = noticeDAO.getNum();
+//	    System.out.println("totalCount = " + totalCount);
+	    pager.getNum(totalCount);
+		pager.getRowNum();
+		return noticeDAO.getList(pager);
 	}
 
 	@Override

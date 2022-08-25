@@ -6,7 +6,7 @@
 		    
 		    <mapper namespace="com.im.start.board.notice.NoticeDAO">
 		    
-		    	<select id="getList" parameterType="Map" resultType="NoticeDTO" >
+		    	<select id="getList" parameterType="Pager" resultType="NoticeDTO" >
 		    	SELECT * FROM
 				( SELECT ROWNUM R,N.*
 				 FROM (SELECT * FROM NOTICE order by num desc) N)

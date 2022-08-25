@@ -10,7 +10,7 @@
  
 </head>
 <body>
-	<h1>${board} page ${maxNum - page < 3} /${maxNum} / ${page} </h1>
+	<h1>${board} page  </h1>
 	
 	
 	<table class="table">
@@ -26,7 +26,7 @@
 	  
 	  <c:forEach items="${list}" var="dto">
 	  
-	  <tr>
+	  	<tr>
 	     
 	      <td>${dto.num }</td>
 	      <td><a href = "./detail?num=${dto.num}">${dto.title }</a></td>
@@ -49,46 +49,42 @@
 	  
 	  
 	  	<c:choose>
-	  		<c:when test="${page == 1}">
+	  		<c:when test="${pager.startNum <= 1}">
 	  			<li class="page-item disabled">
 	      			<a class="page-link">Previous</a>
 				</li>
 	  		</c:when>
 	  	
 	  		<c:otherwise> 
-	  		<li class="page-item"><a class="page-link" href="./list?page=${page-1}">Previous</a></li>
+	  		<li class="page-item"><a class="page-link" href="./list?page=${pager.startNum-1}">Previous</a></li>
 	  		</c:otherwise>
 	  	
 	  	</c:choose>
 	  	
 	  	
-	  	<c:choose>
-	  		<c:when test="${page < 3}">
-	  			<li class="page-item"><a class="page-link" href="./list?page=1">1</a></li>
-			    <li class="page-item"><a class="page-link" href="./list?page=2">2</a></li>
-			    <li class="page-item"><a class="page-link" href="./list?page=3">3</a></li>
-			    <li class="page-item"><a class="page-link" href="./list?page=4">4</a></li>
-			    <li class="page-item"><a class="page-link" href="./list?page=5">5</a></li>
-	  		</c:when>
-	  	
-	  		<c:when test="${maxNum - page < 3}">
-	  			
-	  		</c:when>
+	  		<c:forEach begin="${pager.startNum }" end="${pager.lastNum }" var="i">
+		  		
+			  			<li class="page-item"><a class="page-link" href="./list?page=${i}">${i}</a></li>
+		  		
+			  		
+		  			
+		  	</c:forEach>
 	  		
-	  		<c:otherwise>
-	  			<li class="page-item"><a class="page-link" href="./list?page=${page-2}">${page-2}</a></li>
-			    <li class="page-item"><a class="page-link" href="./list?page=${page-1}">${page-1}</a></li>
-			    <li class="page-item"><a class="page-link" href="./list?page=${page}">${page}</a></li>
-			    <li class="page-item"><a class="page-link" href="./list?page=${page+1}">${page+1}</a></li>
-			    <li class="page-item"><a class="page-link" href="./list?page=${page+2}">${page+2}</a></li>
+		   
+	   	 	
+	   	 	<c:choose>
+	  		<c:when test="${pager.lastNum - pager.startNum < 4}">
+	  			<li class="page-item disabled">
+	  			<a class="page-link" href="./list?page=${pager.lastNum+1}">Next</a>
+			  </li>
+	  		</c:when>
+	  		<c:otherwise> 
+	  		 	<li class="page-item">
+	  		 	<a class="page-link" href="./list?page=${pager.lastNum+1}">Next</a>
+			  </li>
 	  		</c:otherwise>
-	  	
+			  	
 	  	</c:choose>
-	      		
-		    <li class="page-item">
-		    
-	      <a class="page-link" href="./list?page=${page+1}">Next</a>
-	    </li>
 	  </ul>
 	</nav>
 	
