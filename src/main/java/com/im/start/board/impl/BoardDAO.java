@@ -20,6 +20,6 @@ public interface BoardDAO {
 	// 글삭제
 	public int setDelete(BoardDTO boardDTO) throws Exception;
 	
-	public Long getNum() throws Exception;
+	public Long getNum(Pager pager) throws Exception;
 	
 }

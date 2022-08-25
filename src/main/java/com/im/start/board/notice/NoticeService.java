@@ -19,6 +19,8 @@ public class NoticeService implements BoardService{
 	
 	
 	
+	
+	
 		
 	
 	
@@ -27,7 +29,7 @@ public class NoticeService implements BoardService{
 		// TODO Auto-generated method stub
 		
 		
-	    Long totalCount = noticeDAO.getNum();
+	    Long totalCount = noticeDAO.getNum(pager);
 //	    System.out.println("totalCount = " + totalCount);
 	    pager.getNum(totalCount);
 		pager.getRowNum();

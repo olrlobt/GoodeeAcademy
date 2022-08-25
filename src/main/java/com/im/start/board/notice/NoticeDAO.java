@@ -54,9 +54,9 @@ public class NoticeDAO implements BoardDAO{
 	}
 
 	@Override
-	public Long getNum() throws Exception {
+	public Long getNum(Pager pager) throws Exception {
 		
-		return sqlSession.selectOne(NAMESPACE+"getNum");
+		return sqlSession.selectOne(NAMESPACE+"getNum", pager);
 	}
 
 	

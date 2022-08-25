@@ -24,8 +24,6 @@
 	  </thead>
 	  <tbody class="table-group-divider">
 	  
-	
-	  
 	  <tr>
 	      
 	      <td>${dto.num }</td>
@@ -35,11 +33,13 @@
 	      
 	    </tr>
 	  
-	
-	    
-	    
 	  </tbody>
 	</table>
+	
+	
+	<div class="row">
+		<a href="./reply"> 답 글 </a>
+	</div>
 	
 
 

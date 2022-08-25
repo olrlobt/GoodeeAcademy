@@ -45,7 +45,8 @@ public class NoticeController {
 //		System.out.println("");
 //		System.out.println("perPage ="+pager.getPerPage());
 //		System.out.println("perBlock ="+pager.getPerBlock());
-	
+		
+		
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
 		

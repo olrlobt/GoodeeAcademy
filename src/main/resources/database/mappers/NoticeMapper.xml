@@ -5,11 +5,29 @@
 		    
 		    
 		    <mapper namespace="com.im.start.board.notice.NoticeDAO">
+		    	<sql id="search">
+		    		WHERE
+				 		<choose>
+				 			<when test="kind=='Title'">title</when>
+				 			<when test="kind=='Writer'">writer</when>
+				 			<otherwise>contents</otherwise>
+				 		</choose>
+				 	LIKE '%'||#{search}||'%' 	
+				</sql>
+		    
+		    
+		    
+		    
+		    
 		    
 		    	<select id="getList" parameterType="Pager" resultType="NoticeDTO" >
 		    	SELECT * FROM
 				( SELECT ROWNUM R,N.*
-				 FROM (SELECT * FROM NOTICE order by num desc) N)
+				 FROM (SELECT * FROM NOTICE 
+				 	
+				 	<include refid="search"></include>
+				 	
+				 order by num desc) N)
 				 WHERE R BETWEEN #{startRow} AND #{lastRow}
 		    	</select>
 		    	
@@ -29,8 +47,8 @@
 		    	DELETE NOTICE WHERE NUM = #{num}
 		    	</delete>
 		    	
-		    	<select id="getNum"  resultType="Long">
-		    	SELECT COUNT(NUM) FROM NOTICE
+		    	<select id="getNum"  parameterType="Pager" resultType="Long">
+		    	SELECT COUNT(NUM) FROM NOTICE <include refid="search"></include>
 		    	</select>
 		    
 		    

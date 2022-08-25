@@ -16,7 +16,7 @@ import com.im.start.board.notice.NoticeDTO;
 public class QnaDAOTest extends MyAbstractTest{
 
 	@Autowired
-	private NoticeDAO dao;
+	private QnaDAO dao;
 	
 
 //	@Test
@@ -40,20 +40,7 @@ public class QnaDAOTest extends MyAbstractTest{
 		assertNotNull(noticeDTO);
 		
 	}
-	@Test
-	public void setAdd() throws Exception{
-		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setContents("hihi");
-		noticeDTO.setTitle("hihi");
-		noticeDTO.setWriter("hihi");
-		
-		int result = dao.setAdd(noticeDTO);
-		
-		assertEquals(1, result);
 	
-		
-		
-	}
 	@Test
 	public void setUpdate() throws Exception{
 		
@@ -83,5 +70,27 @@ public class QnaDAOTest extends MyAbstractTest{
 		
 	}
 	
-
+//	@Test
+	public void setAdd() throws Exception{
+		
+		for(int i = 0 ; i < 100; i ++ ) {
+			QnaDTO qnaDTO = new QnaDTO();
+			qnaDTO.setTitle("Title" + i);
+			qnaDTO.setContents("contents" + i);
+			qnaDTO.setWriter("writer" + i);
+			
+			int result = dao.setAdd(qnaDTO);
+			if(i%10 ==0) { 
+				Thread.sleep(500);
+			}
+		}
+		
+		
+		
+		
+		System.out.println("finish");
+	}
+	
+	
+	
 }

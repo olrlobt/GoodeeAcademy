@@ -86,12 +86,11 @@ public class NoticeDAOTest extends MyAbstractTest {
 	}
 	
 	
-	@Test
+//	@Test
 	public void getNumTest() throws Exception {
 		
-		Long result = dao.getNum();
+//		Long result = dao.getNum();
 		
-		System.out.println("result = " + result);
 	}
 	
 	

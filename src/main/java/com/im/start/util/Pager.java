@@ -16,15 +16,38 @@ public class Pager {
 	private Long perPage;
 	private Long perBlock;
 	
-	private boolean pre;
-	private boolean next;
-	
+	private String kind;
+	private String search;
 	
 	
 	public Pager() {
 		this.perPage = 10L;
 		this.perBlock = 5L;
 	}
+	
+	/////////////////
+	
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	public String getSearch() {
+		if(this.search == null)
+			this.search = "";
+			
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	
+	
+	
+	////////////////
+	
+	
 	public void getRowNum() throws Exception{
 		this.startRow = (getPage()-1)*getPerPage()+1;
 		this.lastRow = getPage()*getPerPage();
