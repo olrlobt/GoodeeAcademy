@@ -12,6 +12,9 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+<div class="container-fluid">
+	<div class="row justify-content-center mt-5">
+	<div class = "col-lg-6">
 	<h1>this is detail page</h1>
 	
 	<table border="1">
@@ -34,6 +37,8 @@
 	
 	<a href="./delete?bookNum=${detail.bookNum}"> Delete </a>
 	<a href="./update?bookNum=${detail.bookNum}"> Update </a>
+</div></div></div>
+	
 	
 	
 	<c:import url="../template/footer.jsp"></c:import>

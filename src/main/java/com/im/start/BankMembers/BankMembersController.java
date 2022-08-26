@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.im.start.bankaccount.AccountService;
@@ -59,24 +60,13 @@ public class BankMembersController {
 	
 	//Post
 	@RequestMapping(value = "join", method = RequestMethod.POST)
-	public String join(String ID,String PW,String NAME, String EMAIL, String PHONE) throws Exception {
-		BankMembersDTO bankMembersDTO = new BankMembersDTO();
-		bankMembersDTO.setID(ID);
-		bankMembersDTO.setPW(PW);
-		bankMembersDTO.setName(NAME);
-		bankMembersDTO.setEmail(EMAIL);
-		bankMembersDTO.setPhone(PHONE);
-		int result = bankMembersService.setJoin(bankMembersDTO);
-		if(result == 1) {
-			System.out.println("성공");
-		}
-		else {
-			System.out.println("실패");
-		}
-		System.out.println("조인 Post 실행");
+	public String join(BankMembersDTO bankMembersDTO , MultipartFile photo) throws Exception {
 		
-		//로그인폼 페이지로 이동
-		//redirect
+	//int result = bankMembersService.setJoin(bankMembersDTO);
+		
+	
+		
+		int result = bankMembersService.setJoin(bankMembersDTO,photo);
 		return "redirect:./login.file";
 	}
 	
