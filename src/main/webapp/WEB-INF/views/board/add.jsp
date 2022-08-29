@@ -7,34 +7,37 @@
 <head>
 <meta charset="UTF-8">
 <title>ADD Page</title>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
+
+ <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    
 </head>
 <style>
-    .align-center {text-align: center;}
+   
 </style>
 <body>
 
 <c:import url="../template/header.jsp"></c:import>
-	<h1 class="align-center">${board } ADD</h1>
+
+
+<section class="container-fluid col-lg-4">
+	<h1>${board } ADD</h1>
 	
 	
-	<form action ="./add" class="align-center" method="post">
+	<form action ="./add"  method="post" enctype="multipart/form-data">
 	     
 	  
     	<div class="mb-3 mt-4">
 	    	<label class="form-label">Title</label>
-    	</div>
-    	
-	    <div>
 	    	<input type ="text" name ="title"> 
 	    </div>
 	    
     	<div class="mb-3 mt-4">
 	    	<label class="form-label">Writer</label>
-    	</div>
-    	
-	    <div>
+
 	    	<input type ="text" name ="writer"> 
 	    </div>
 	    
@@ -42,20 +45,42 @@
 	    
 	 	<div class="mb-3 mt-4">
 	    	<label  class="form-label">Contents</label>
-	    </div>
-	    <div>
-	    	<input type="text" class="col-lg-2" name="contents">
+	    	<textarea class="form-control" name="contents" id="contents" rows="3"></textarea>
+	    	
 	  	</div>
+	  	
+	  			<div class="row mb-3">
+			    <label for="file1" class="col-sm-2 col-form-label">file1</label>
+			    <div class="col-sm-10">
+			      <input type="file" name="files" class="form-control" id="file1" >
+			    </div>
+			  </div>
+			  <div class="row mb-3">
+			    <label for="file2" class="col-sm-2 col-form-label">file2</label>
+			    <div class="col-sm-10">
+			      <input type="file" name="files" class="form-control" id="file2" >
+			    </div>
+			  </div>
+			  <div class="row mb-3">
+			    <label for="file3" class="col-sm-2 col-form-label">file3</label>
+			    <div class="col-sm-10">
+			      <input type="file" name="files" class="form-control" id="file3" >
+			    </div>
+			  </div>
+	  	
 	  <button type="submit" class="btn btn-primary mt-4">글 작성</button>
 	  
 	  
 	</form>
 
    
-   <c:import url="../template/footer.jsp"></c:import>
-    
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
    
-
+   
+   </section>
+   <c:import url="../template/footer.jsp"></c:import> 
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   <script type="text/javascript">
+   		$("#contents").summernote();
+   </script>
 </body>
 </html>

@@ -2,6 +2,9 @@ package com.im.start.board.notice;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.im.start.board.impl.BoardDTO;
@@ -27,7 +31,7 @@ public class NoticeController {
 	public String getBoard() {
 		
 		
-		return "Notice";
+		return "notice";
 	}
 	
 	
@@ -63,7 +67,6 @@ public class NoticeController {
 		
 		
 		return "board/detail";
-		
 	}
 	//글쓰기
 	@RequestMapping(value = "add", method = RequestMethod.GET)
@@ -71,9 +74,9 @@ public class NoticeController {
 		
 	}
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public ModelAndView setAdd(BoardDTO boardDTO) throws Exception{
+	public ModelAndView setAdd(BoardDTO boardDTO,MultipartFile [] files,HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result =noticeService.setAdd(boardDTO);
+		int result =noticeService.setAdd(boardDTO,files,session.getServletContext());
 		mv.setViewName("redirect:./list");
 		//구 찌
 		

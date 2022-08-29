@@ -38,6 +38,12 @@ public class NoticeDAOTest extends MyAbstractTest {
 		assertNotNull(noticeDTO);
 		
 	}
+	
+	
+	
+	
+	
+	
 //	@Test
 //	public void setAdd() throws Exception{
 //		

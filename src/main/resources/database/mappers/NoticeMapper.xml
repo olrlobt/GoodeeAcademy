@@ -5,6 +5,15 @@
 		    
 		    
 		    <mapper namespace="com.im.start.board.notice.NoticeDAO">
+		    
+		    	<insert id="setAddFiles" parameterType="BoardFileDTO">
+		    	INSERT INTO NOTICEFILE VALUES (FILE_SEQ.NEXTVAL,#{fileName},#{oriName},#{num})
+		    	</insert>
+		    
+		    
+		    
+		    
+		    
 		    	<sql id="search">
 		    		WHERE
 				 		<choose>
@@ -31,12 +40,48 @@
 				 WHERE R BETWEEN #{startRow} AND #{lastRow}
 		    	</select>
 		    	
-		    	<select id="getDetail" parameterType="NoticeDTO" resultType="NoticeDTO">
-		    	SELECT * FROM NOTICE WHERE NUM = #{num}
+		    	<select id="getDetail" parameterType="BoardDTO" resultMap="getDetailResult"> 
+		    	select NO.* , NF.*
+				from notice no
+				    left join
+				    noticefile nf
+				    on no.num = nf.num
+				where no.num=#{num}
 		    	</select>
 		    	
+		    	
+		    	<resultMap type="NoticeDTO" id="getDetailResult">
+		    		<id property="num" column="NUM"/>
+		    		<result property="title" column="TITLE"/>
+		    		<result property="contents" column="CONTENTS"/>
+		    		<result property="writer" column="WRITER"/>
+		    		<result property="regDate" column="REGDATE"/>
+		    		<result property="hit" column="HIT"/>
+		    		<collection property="boardFileDTOs" javaType="List" ofType="BoardFileDTO">
+		    				<id property="fileNum" column="FILENUM"/>
+		    				<result property="fileName" column="FILENAME"/>	
+		    				<result property="oriName" column="ORINAME"/>	
+		    		
+		    		</collection>
+		    	
+		    	
+		    	
+		    	
+		    	</resultMap>
+		    	
+		    	
+		    	
+		    	
+		    	
+		    	
+		    	
+		    	
 		    	<insert id="setAdd" parameterType="NoticeDTO">
-		    	INSERT INTO NOTICE VALUES (BOARD_SEQ.NEXTVAL,#{title},#{contents},#{writer},SYSDATE,0)
+		    		<selectKey order="BEFORE" keyProperty="num" resultType="Long">
+                  	SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+             	 	 </selectKey>
+		    	
+		    	INSERT INTO NOTICE VALUES (#{num},#{title},#{contents},#{writer},SYSDATE,0)
 		    	</insert>
 		    	
 		    	<update id="setUpdate" parameterType="NoticeDTO">

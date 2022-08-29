@@ -11,7 +11,9 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-
+<div class="container-fluid">
+	<div class="row justify-content-center mt-5">
+	<div class = "col-lg-6">
 	<h1>!! my page !!</h1>
 	<h3>${dto.ID }</h3>
 	<h3>${dto.name }</h3>
@@ -34,10 +36,14 @@
 			</tbody>
 		
 		</table>
-		
-	
 	</c:forEach>
+	<div class = "row">
+		<img alt="" src="../resources/upload/member/${dto.bankMembersFileDTO.fileName }">
+	</div>
 	
+	
+	
+	</div></div></div>
 	
 	
 	<c:import url="../template/footer.jsp"></c:import>

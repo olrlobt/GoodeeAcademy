@@ -41,6 +41,13 @@
 	      <td>${dto.contents }</td>
 	      <td>${dto.writer }</td>
 	      
+	      <c:forEach items="${dto.boardFileDTOs}" var="fileDTO">
+	      		<td><p><a href="../resources/upload/${board}/${fileDTO.fileName}">${fileDTO.oriName}</a></p></td>
+	    		  
+	      </c:forEach>
+	      
+	      
+	      
 	    </tr>
 	  
 	  </tbody>
