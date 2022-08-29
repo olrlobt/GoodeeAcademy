@@ -68,10 +68,13 @@ public class NoticeController {
 		
 		return "board/detail";
 	}
-	//글쓰기
+	
+	
+	
 	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public void setAdd() throws Exception{
+	public String setAdd() throws Exception{
 		
+		return "board/add";
 	}
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public ModelAndView setAdd(BoardDTO boardDTO,MultipartFile [] files,HttpSession session) throws Exception{

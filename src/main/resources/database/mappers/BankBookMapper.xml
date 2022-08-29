@@ -6,6 +6,9 @@
 		    
 		    <mapper namespace="com.im.start.bankbook.BankBookDAO">
 		    
+		    
+		    
+		    
 		    	<select id="getList" resultType="BankBookDTO">
 		    	SELECT * FROM BANKBOOK
 		    	</select>

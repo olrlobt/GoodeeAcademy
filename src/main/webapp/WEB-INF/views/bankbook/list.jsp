@@ -12,6 +12,9 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+<div class="container-fluid">
+	<div class="row justify-content-center mt-5">
+	<div class = "col-lg-6">
 	<h1>this is list page</h1>
 	
 	<div class = "">
@@ -45,7 +48,7 @@
 	</div>
 	
 
-	
+</div></div></div>
 	
 	
 	

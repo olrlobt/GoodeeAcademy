@@ -36,13 +36,9 @@
 			</tbody>
 		
 		</table>
+		
+	
 	</c:forEach>
-	<div class = "row">
-		<img alt="" src="../resources/upload/member/${dto.bankMembersFileDTO.fileName }">
-	</div>
-	
-	
-	
 	</div></div></div>
 	
 	

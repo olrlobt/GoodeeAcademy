@@ -13,11 +13,8 @@
 
 
 	<select id="getMyPage" parameterType="BankMembersDTO" resultMap="getMyPageResult">
-		SELECT BM.ID , BM.NAME , BM.EMAIL , BM.PHONE ,MF.FILENUM,MF.FILENAME, BA.ACCOUNTNUM, BB.BOOKNAME, BA.ACCOUNTDATE
+		SELECT BM.ID , BM.NAME , BM.EMAIL , BM.PHONE , BA.ACCOUNTNUM, BB.BOOKNAME, BA.ACCOUNTDATE
 		FROM bankmembers BM
-			LEFT JOIN
-			MEMBERFILE MF
-			ON BM.ID = MF.USERID
 			LEFT JOIN
 			bankaccount BA
 			ON BM.ID = BA.USERID
@@ -31,19 +28,18 @@
 		<result property="name" column="NAME"/>
 		<result property="email" column="EMAIL"/>
 		<result property="phone" column="PHONE"/>
-		
-		<association property="bankMembersFileDTO" javaType="BankMembersFileDTO">
-			<result property="fileName" column="FILENAME"/>
-			<result property="fileNum" column="FILENUM"/>
-		</association>
-		
+	
 		<collection property="accountDTOs" javaType="List" ofType="BankAccountDTO">
 			<id property="accountNum" column="ACCOUNTNUM"/>
 			<result property="accountDate" column="ACCOUNTDATE"/> 
 			<association property="bankBookDTO" javaType="BankBookDTO">
 				<result property="bookName" column="BOOKNAME"/>
 			</association>
+		
+		
+		
 		</collection>
+	
 	
 	</resultMap>
 

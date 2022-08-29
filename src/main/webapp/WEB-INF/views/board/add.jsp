@@ -27,7 +27,7 @@
 	<h1>${board } ADD</h1>
 	
 	
-	<form action ="./add"  method="post" enctype="multipart/form-data">
+	<form action ="./add"  method="post">
 	     
 	  
     	<div class="mb-3 mt-4">
@@ -48,26 +48,6 @@
 	    	<textarea class="form-control" name="contents" id="contents" rows="3"></textarea>
 	    	
 	  	</div>
-	  	
-	  			<div class="row mb-3">
-			    <label for="file1" class="col-sm-2 col-form-label">file1</label>
-			    <div class="col-sm-10">
-			      <input type="file" name="files" class="form-control" id="file1" >
-			    </div>
-			  </div>
-			  <div class="row mb-3">
-			    <label for="file2" class="col-sm-2 col-form-label">file2</label>
-			    <div class="col-sm-10">
-			      <input type="file" name="files" class="form-control" id="file2" >
-			    </div>
-			  </div>
-			  <div class="row mb-3">
-			    <label for="file3" class="col-sm-2 col-form-label">file3</label>
-			    <div class="col-sm-10">
-			      <input type="file" name="files" class="form-control" id="file3" >
-			    </div>
-			  </div>
-	  	
 	  <button type="submit" class="btn btn-primary mt-4">글 작성</button>
 	  
 	  
