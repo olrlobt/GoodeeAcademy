@@ -129,7 +129,7 @@
 								<input type="password" class="form-control" name="PW" placeholder="Password" value="PW1" required="required">	
 							</div>        
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+								<button type="button" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
 							</div>
 						</form>
 					</div>
