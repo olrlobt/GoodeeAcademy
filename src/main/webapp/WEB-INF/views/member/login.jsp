@@ -121,15 +121,15 @@
 		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
-						<form action="login" method="post">
+						<form action="login" id = "loginForm" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control" name="ID" placeholder="Username" value = "ID1" required="required">		
+								<input type="text" class="form-control" id = "loginID" name="ID" placeholder="Username" value = "ID1" required="required">		
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" name="PW" placeholder="Password" value="PW1" required="required">	
+								<input type="password" class="form-control" id = "loginPW" name="PW" placeholder="Password" value="PW1" required="required">	
 							</div>        
 							<div class="form-group">
-								<button type="button" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+								<button type="button" id= "loginBtn" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
 							</div>
 						</form>
 					</div>
@@ -146,6 +146,6 @@
 	
 	<c:import url="../template/footer.jsp"></c:import>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  
+  <script src = "/resources/js/member.js"></script>
 </body>
 </html>

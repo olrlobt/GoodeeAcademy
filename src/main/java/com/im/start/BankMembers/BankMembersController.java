@@ -39,7 +39,13 @@ public class BankMembersController {
 	public String login(HttpSession session, BankMembersDTO bankMembersDTO, Model model) throws Exception {
 		System.out.println("DB에 로그인 실행");
 		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
-		System.out.println(bankMembersDTO);
+		
+		if(bankMembersDTO == null) {
+			
+			return "redirect:./login";
+		}
+		
+		
 		session.setAttribute("member", bankMembersDTO);
 		// "redirect:다시 접속할 URL(절대경로,상대경로)"
 		return "redirect:../";
