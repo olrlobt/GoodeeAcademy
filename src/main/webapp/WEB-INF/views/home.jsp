@@ -5,13 +5,15 @@
 <html>
 <head>
 	<title>Home</title>
+
+	
 </head>
 <body>
 <h1>
 	Hello world!  
 </h1>
 
-<h3> ADD VSCODE</h3>
+<h3 > ADD VSCODE</h3>
 
 <P>  The time on the server is ${serverTime}. </P>
 
@@ -31,7 +33,6 @@
 <a href="./member/logOut">LogOut</a>
 </c:if>
 <a href="/member/search">검색</a>
-
 
 </body>
 </html>
