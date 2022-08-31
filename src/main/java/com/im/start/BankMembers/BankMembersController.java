@@ -58,9 +58,14 @@ public class BankMembersController {
 	}
 	
 	//Get
+	
+	@RequestMapping(value = "join_check", method = RequestMethod.GET)
+	public String join_check() {
+		return "/member/join_check";
+	}
+	
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String join() {
-		System.out.println("조인 Get 실행");
 		return "/member/join";
 	}
 	
