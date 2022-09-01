@@ -27,7 +27,7 @@
 	<h1>${board } ADD</h1>
 	
 	
-	<form action ="./add"  method="post">
+	<form action ="./add"  method="post" enctype="multipart/form-data">
 	     
 	  
     	<div class="mb-3 mt-4">
@@ -48,6 +48,13 @@
 	    	<textarea class="form-control" name="contents" id="contents" rows="3"></textarea>
 	    	
 	  	</div>
+	  	
+			<div id = "FileDiv">
+
+				<!-- 파일이 들어가는 자리 -->
+
+			</div>
+	  <button type="button" id = "addFileBtn" class="btn btn-primary mt-4">파일 추가</button>
 	  <button type="submit" class="btn btn-primary mt-4">글 작성</button>
 	  
 	  
@@ -62,5 +69,6 @@
    <script type="text/javascript">
    		$("#contents").summernote();
    </script>
+   <script src="/resources/js/add.js"></script>
 </body>
 </html>

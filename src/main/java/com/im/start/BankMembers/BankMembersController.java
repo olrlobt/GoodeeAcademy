@@ -3,6 +3,7 @@ package com.im.start.BankMembers;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -71,13 +72,13 @@ public class BankMembersController {
 	
 	//Post
 	@RequestMapping(value = "join", method = RequestMethod.POST)
-	public String join(BankMembersDTO bankMembersDTO , MultipartFile photo) throws Exception {
+	public String join(BankMembersDTO bankMembersDTO , MultipartFile photo,HttpSession session) throws Exception {
 		
 	//int result = bankMembersService.setJoin(bankMembersDTO);
 		
 	
 		
-		int result = bankMembersService.setJoin(bankMembersDTO,photo);
+		int result = bankMembersService.setJoin(bankMembersDTO,photo,session.getServletContext());
 		return "redirect:./login.file";
 	}
 	

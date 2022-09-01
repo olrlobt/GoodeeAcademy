@@ -54,7 +54,7 @@ function allCheck(result){
     if(result == true){
         joinCheckSubmit.disabled = false;
 
-    }else{dwㅁ
+    }else{
 
         joinCheckSubmit.disabled = true;
 
