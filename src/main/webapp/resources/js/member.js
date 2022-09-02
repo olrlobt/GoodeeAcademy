@@ -25,7 +25,4 @@ loginBtn.addEventListener("click",function(){
     }
 
 
-
-    
-
 });
