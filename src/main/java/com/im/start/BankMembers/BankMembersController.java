@@ -60,9 +60,9 @@ public class BankMembersController {
 	
 	//Get
 	
-	@RequestMapping(value = "join_check", method = RequestMethod.GET)
+	@RequestMapping(value = "joinCheck", method = RequestMethod.GET)
 	public String join_check() {
-		return "/member/join_check";
+		return "/member/joinCheck";
 	}
 	
 	@RequestMapping(value = "join", method = RequestMethod.GET)
