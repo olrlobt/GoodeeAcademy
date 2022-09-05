@@ -80,8 +80,22 @@ public class NoticeController {
 	public ModelAndView setAdd(BoardDTO boardDTO,MultipartFile [] files,HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result =noticeService.setAdd(boardDTO,files,session.getServletContext());
-		mv.setViewName("redirect:./list");
+		
 		//구 찌
+		
+		String message = "게시 실패 !!";
+		String url = "./list";
+		
+		if(result != 0) {
+			message = "게시 성공 !!";
+			
+		}
+		
+		mv.addObject("message",message);
+		mv.addObject("url",url);
+		
+		mv.setViewName("common/result");
+		
 		
 		return mv;
 	}

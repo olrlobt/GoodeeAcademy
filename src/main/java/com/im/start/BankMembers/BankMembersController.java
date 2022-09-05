@@ -37,19 +37,30 @@ public class BankMembersController {
 	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(HttpSession session, BankMembersDTO bankMembersDTO, Model model) throws Exception {
+	public ModelAndView login(HttpSession session, BankMembersDTO bankMembersDTO) throws Exception {
 		System.out.println("DB에 로그인 실행");
-		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
+		ModelAndView mv = new ModelAndView();
 		
-		if(bankMembersDTO == null) {
-			
-			return "redirect:./login";
+		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
+
+		session.setAttribute("member", bankMembersDTO);
+		
+		int result = 0 ;
+		String url = "./login";
+		String message = "로그인 실패";
+		if(bankMembersDTO != null) {
+			result=1;
+			message = "로그인 성공";
+
+			url = "../";
 		}
 		
+		mv.addObject("result",result);
+		mv.addObject("message",message);
+		mv.addObject("url",url);
+		mv.setViewName("common/result");
 		
-		session.setAttribute("member", bankMembersDTO);
-		// "redirect:다시 접속할 URL(절대경로,상대경로)"
-		return "redirect:../";
+		return mv;
 	}
 	
 	@RequestMapping(value = "logOut" , method = RequestMethod.GET)
