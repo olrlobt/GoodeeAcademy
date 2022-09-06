@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		    
+		    <mapper namespace="com.im.start.bankbook.BankBookCommentDAO">
+		    
+		    	<select id="getList" parameterType="CommentDTO" resultType="BankBookCommentDTO">
+		    		SELECT * FROM BANKBOOKCOMMENT WHERE NUM = #{num}
+		    	</select>
+		  	  	<select id="setAdd" parameterType="CommentDTO">
+		    		SELECT * FROM BANKBOOKCOMMENT WHERE NUM = #{num}
+		    		<!-- insert into bankbookcomment values (board_seq.nextval,9,'test',sysdate,'test'); -->
+		    	</select>
+		    
+		    
+		    </mapper>
