@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.im.start.board.impl.CommentDTO;
+import com.im.start.util.CommentPager;
 
 @Repository
 public class BankBookCommentDAO {
@@ -17,25 +18,37 @@ public class BankBookCommentDAO {
 	String NAMESPACE = "com.im.start.bankbook.BankBookCommentDAO.";
 	
 	
-	public List<BankBookCommentDTO> getList(CommentDTO CommentDTO) throws Exception{
+	
+
+	
+	
+	public Long getCommentListTotalCount(CommentPager commentPager) throws Exception{
 		
-		
-		return sqlSession.selectList(NAMESPACE + "getList",CommentDTO);
+		return sqlSession.selectOne(NAMESPACE + "getCommentListTotalCount",commentPager);
 	}
 	
-	public int setAdd(CommentDTO CommentDTO) throws Exception{
+	
+	
+	
+	public List<BankBookCommentDTO> getList(CommentPager commentPager) throws Exception{
 		
-		return sqlSession.selectOne(NAMESPACE + "setAdd",CommentDTO);
+		
+		return sqlSession.selectList(NAMESPACE + "getList",commentPager);
 	}
 	
-	public int setDelete(CommentDTO CommentDTO) throws Exception{
+	public int setAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
 		
-		return sqlSession.selectOne(NAMESPACE + "setDelete",CommentDTO);
+		return sqlSession.insert(NAMESPACE + "setAdd",bankBookCommentDTO);
 	}
 	
-	public int setUpdate(CommentDTO CommentDTO) throws Exception{
+	public int setDelete(BankBookCommentDTO bankBookCommentDTO) throws Exception{
 		
-		return sqlSession.selectOne(NAMESPACE + "setUpdate",CommentDTO);
+		return sqlSession.delete(NAMESPACE + "setDelete",bankBookCommentDTO);
+	}
+	
+	public int setUpdate(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+		
+		return sqlSession.update(NAMESPACE + "setUpdate",bankBookCommentDTO);
 	}
 	
 	

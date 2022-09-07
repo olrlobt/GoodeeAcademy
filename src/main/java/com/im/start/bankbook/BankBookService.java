@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.im.start.util.CommentPager;
+
 @Service
 public class BankBookService {
 
@@ -14,6 +16,9 @@ public class BankBookService {
 	
 	@Autowired
 	private BankBookCommentDAO bankBookCommentDAO;
+	
+	
+	
 	
 	public int setCommentAdd(BankBookCommentDTO bankBookCommentDTO) throws Exception{
 		
@@ -30,10 +35,15 @@ public class BankBookService {
 		
 		return bankBookCommentDAO.setUpdate(bankBookCommentDTO);
 	}
-	public List<BankBookCommentDTO> getCommentList(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+	public List<BankBookCommentDTO> getCommentList(CommentPager commentPager) throws Exception{
 		
-		
-		return bankBookCommentDAO.getList(bankBookCommentDTO);
+		commentPager.getRowNum();
+		Long totalCount = bankBookCommentDAO.getCommentListTotalCount(commentPager);
+		commentPager.makePage(totalCount);
+        
+         
+         
+		return bankBookCommentDAO.getList(commentPager);
 	}
 	
 	

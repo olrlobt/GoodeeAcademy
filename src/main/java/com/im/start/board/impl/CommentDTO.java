@@ -18,6 +18,9 @@ public class CommentDTO {
 	public void setNum(Long num) {
 		this.num = num;
 	}
+	
+	
+
 	public String getContents() {
 		return contents;
 	}
