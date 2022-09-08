@@ -56,12 +56,11 @@ public class BankBookController {
 	@PostMapping("commentUpdate")
 	@ResponseBody
 	public int setCommentUpdate(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+		
 		int result = bankBookService.setCommentUpdate(bankBookCommentDTO);
 		
 		
 		return result;
-		
-		
 	}
 	
 	

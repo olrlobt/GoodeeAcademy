@@ -3,6 +3,8 @@ const writer = document.querySelector("#writer");
 const contents = document.querySelector("#contents");
 const commentList = document.querySelector("#commentList");
 const moreBtn = document.querySelector("#moreBtn");
+const updateBtn = document.querySelector("#updateBtn");
+
 
 
 let page = 1;
@@ -115,6 +117,10 @@ function getCommentList(p,bn){
                 let tdAttr = document.createAttribute("class");
                 tdAttr.value = "update";
                 td.setAttributeNode(tdAttr);
+                tdAttr = document.createAttribute("data-commentNum");
+                tdAttr.value = ar[i].num;
+                td.setAttributeNode(tdAttr);
+
                 td.appendChild(tdText);
                 tr.appendChild(td);
 
@@ -219,13 +225,26 @@ commentList.addEventListener("click",function(event){
         }
 
         
-    }else if(event.target.className == "update"){
+    }
+    
+    if(event.target.className == "update"){
         
 
         // let contents = event.target.previousSibling.previousSibling.previousSibling;
         // console.log(contents);
         // let v = contents.innerHTML;
+        let contents = event.target.previousSibling.innerHTML;
+        
+        let writer = event.target.previousSibling.previousSibling.innerHTML;
+        let num = event.target.getAttribute("data-commentNum");
+        
+        document.querySelector("#updateContents").value = contents;
+        document.querySelector("#updateWriter").value = writer;
+        document.querySelector("#num").value = num;
+
+
         document.querySelector("#up").click();
+        
 
     }
 
@@ -233,3 +252,51 @@ commentList.addEventListener("click",function(event){
 
 })
 
+
+
+updateBtn.addEventListener("click", function(){
+    
+
+    let updateNum = document.querySelector("#num").value;
+    let updateContents = document.querySelector("#updateContents").value;
+
+
+
+
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.open("POST","./commentUpdate");
+
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("num="+updateNum + "&contents="+updateContents);
+    
+    xhttp.onreadystatechange = function(){
+
+            if(this.status == 200 && this.readyState == 4){
+
+
+                let result = xhttp.responseText.trim();
+
+                    if(result == 1){
+                        
+                        console.log(" 업데이트 진행 ");
+                        for(let i = 0 ; i <commentList.children.length;)
+                        {
+                            commentList.children[0].remove();
+    
+                        }
+    
+                        page = 1;
+                        getCommentList(page,bookNum);
+
+
+                    }
+
+            }
+
+
+
+    }
+
+
+})

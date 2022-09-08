@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.im.start.BankMembers.BankMembersDTO;
 import com.im.start.board.impl.BoardDTO;
 import com.im.start.util.Pager;
 
@@ -72,9 +73,20 @@ public class NoticeController {
 	
 	
 	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public String setAdd() throws Exception{
+	public String setAdd(HttpSession session) throws Exception{
+		BankMembersDTO bankMembersDTO=(BankMembersDTO) session.getAttribute("member");
 		
-		return "board/add";
+		if(bankMembersDTO != null) {
+			
+			
+			return "board/add";
+			
+		}else {
+			
+			return "redirect:../member/login";
+		}
+		
+		
 	}
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public ModelAndView setAdd(BoardDTO boardDTO,MultipartFile [] files,HttpSession session) throws Exception{
