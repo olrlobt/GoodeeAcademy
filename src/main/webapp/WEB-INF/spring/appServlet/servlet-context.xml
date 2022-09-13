@@ -21,6 +21,33 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 인터셉터용 객체 생성 -->
+	<beans:bean class="com.im.start.interceptor.TestInterceptor" id = "testInterceptor"></beans:bean>
+	
+	<!-- url 과 인터셉터를 매핑. -->
+	
+		<interceptors>
+			<interceptor>
+				<!-- url -->
+				<mapping path="/**"/>
+				<beans:ref bean = "testInterceptor"/>
+			</interceptor>
+			
+			<interceptor>
+				<mapping path="/qna/*"/>
+				<mapping path="/member/myPage"/>
+				<exclude-mapping path="/qna/list"/>
+				<beans:bean class="com.im.start.interceptor.MemberInterceptor" id = "memberInterceptor"></beans:bean>
+			
+			</interceptor>
+			
+			
+			
+		</interceptors>
+	
+	
+	
+	
 	<context:component-scan base-package="com.im.start" />
 	
 	
