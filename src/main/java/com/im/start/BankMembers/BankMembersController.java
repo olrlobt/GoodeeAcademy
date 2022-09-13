@@ -41,8 +41,15 @@ public class BankMembersController {
 		System.out.println("DB에 로그인 실행");
 		ModelAndView mv = new ModelAndView();
 		
+		System.out.println(bankMembersDTO.getID());
+		System.out.println(bankMembersDTO.getPW());
+	//	List<RoleDTO> li = bankMembersDTO.getRoleDTOs();
+		
 		bankMembersDTO = bankMembersService.getLogin(bankMembersDTO);
 
+	
+		
+		
 		session.setAttribute("member", bankMembersDTO);
 		
 		int result = 0 ;

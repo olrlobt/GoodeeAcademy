@@ -12,7 +12,7 @@ public class BankBookMemberDAOTest  extends MyAbstractTest{
 	@Autowired
 	private BankMembersDAO bankMembersDAO;
 	
-	@Test
+	//@Test
 	public void getMyPageTest() throws Exception{
 		
 		BankMembersDTO bankMembersDTO = new BankMembersDTO();
@@ -22,5 +22,19 @@ public class BankBookMemberDAOTest  extends MyAbstractTest{
 		assertNotNull(bankMembersDTO);
 		
 	}
+	
+	@Test
+	public void getLoginTest() throws Exception{
+		
+		BankMembersDTO bankMembersDTO = new BankMembersDTO();
+		bankMembersDTO.setID("qweqwe");
+		bankMembersDTO.setPW("qweqwe");
+		bankMembersDTO=bankMembersDAO.getLogin(bankMembersDTO);
+		
+		assertNotNull(bankMembersDTO);
+		
+	}
+	
+	
 
 }

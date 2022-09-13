@@ -23,29 +23,35 @@
 	
 	<!-- 인터셉터용 객체 생성 -->
 	<beans:bean class="com.im.start.interceptor.TestInterceptor" id = "testInterceptor"></beans:bean>
-	
+	<beans:bean class="com.im.start.interceptor.MemberInterceptor" id = "memberInterceptor"></beans:bean>
 	<!-- url 과 인터셉터를 매핑. -->
 	
+	
+	<beans:bean class="com.im.start.interceptor.AdminCheckInterceptor" id = "adminCheckInterceptor"></beans:bean>
 		<interceptors>
+		
 			<interceptor>
-				<!-- url -->
-				<mapping path="/**"/>
-				<beans:ref bean = "testInterceptor"/>
-			</interceptor>
 			
-			<interceptor>
-				<mapping path="/qna/*"/>
-				<mapping path="/member/myPage"/>
+				<mapping path="/notice/**"/>
+				<mapping path="/qna/**"/>
+				<exclude-mapping path="/notice/list"/>
 				<exclude-mapping path="/qna/list"/>
-				<beans:bean class="com.im.start.interceptor.MemberInterceptor" id = "memberInterceptor"></beans:bean>
-			
+				<exclude-mapping path="/notice/detail"/>
+				<beans:ref bean = "memberInterceptor"/>
 			</interceptor>
+		
+			<interceptor>
 			
-			
+				<mapping path="/notice/**"/>
+				<exclude-mapping path="/notice/list"/>
+				<exclude-mapping path="/notice/detail"/>
+				<beans:ref bean = "adminCheckInterceptor"/>
+			</interceptor>
 			
 		</interceptors>
+		
 	
-	
+		
 	
 	
 	<context:component-scan base-package="com.im.start" />

@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias type="com.im.start.BankMembers.BankMembersDTO" alias="BankMembersDTO"/>
 		<typeAlias type="com.im.start.BankMembers.BankMembersFileDTO" alias="BankMembersFileDTO"/>
+		<typeAlias type="com.im.start.BankMembers.RoleDTO" alias="RoleDTO"/>
 		<typeAlias type="com.im.start.bankbook.BankBookCommentDTO" alias="BankBookCommentDTO"/>
 		<typeAlias type="com.im.start.board.impl.BoardFileDTO" alias="BoardFileDTO"/>
 		<typeAlias type="com.im.start.board.impl.CommentDTO" alias="CommentDTO"/>

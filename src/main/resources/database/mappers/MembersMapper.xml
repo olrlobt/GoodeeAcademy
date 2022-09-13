@@ -48,9 +48,28 @@
 	</resultMap>
 
 
-	<select id="getLogin" parameterType="BankMembersDTO" resultType="BankMembersDTO">
-		SELECT ID,NAME,EMAIL,PHONE FROM BANKMEMBERS WHERE ID = #{ID} AND PW = #{PW}
+	<select id="getLogin" parameterType="BankMembersDTO" resultMap="getRole">
+		select M.ID, M.NAME , MR.ROLENUM, R.ROLENAME
+		from BANKMEMBERS M
+		    INNER JOIN 
+		    MEMBER_ROLE MR
+		    ON M.ID = MR.USERID
+		    INNER JOIN
+		    ROLE R
+		    ON MR.ROLENUM = R.ROLENUM
+		WHERE M.ID = #{ID} AND M.PW = #{PW}
+		ORDER BY R.ROLENUM ASC
 	</select>
+	<resultMap type="BankMembersDTO" id="getRole">
+		<id property="ID" column="ID"/>
+		<result property="name" column="NAME"/>
+		<collection property="roleDTOs" javaType="List" ofType="RoleDTO">
+			<id property="roleNum" column="ROLENUM"/>
+			<result property="roleName" column="ROLENAME"/>
+		</collection>
+	</resultMap>
+	
+	
 	<select id="getSearchByID" parameterType="String" resultType = "BankMembersDTO">
 		SELECT * FROM BANKMEMBERS WHERE ID LIKE '%'||#{search}||'%' ORDER BY ID ASC
 	</select>
