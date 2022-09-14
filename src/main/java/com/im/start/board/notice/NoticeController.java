@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,6 +58,11 @@ public class NoticeController {
 		
 		
 		mv.setViewName("board/list");
+		
+//		if (ar.size()!=0) {
+//			
+//			throw new Exception();
+//		}
 		return mv;
 	}
 	//글조회
@@ -69,6 +75,7 @@ public class NoticeController {
 		
 		return "board/detail";
 	}
+	
 	
 	
 	
