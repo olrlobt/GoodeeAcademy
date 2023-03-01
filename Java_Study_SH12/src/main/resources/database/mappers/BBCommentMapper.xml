@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+		    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		    
+		    <mapper namespace="com.im.start.bankbook.BankBookCommentDAO">
+		    
+		    
+		    
+		    	<select id="getCommentListTotalCount" parameterType="CommentPager" resultType="Long">
+		    		SELECT COUNT(num) from bankbookcomment where booknum = #{bookNum}
+		    	</select>
+		    
+		    
+		    	<select id="getList" parameterType="CommentPager" resultType="BankBookCommentDTO">
+		    	
+		    	
+		    		SELECT * FROM
+					    (SELECT ROWNUM R, C.* FROM
+					        (SELECT * FROM bankbookcomment
+					        WHERE BOOKNUM = #{bookNum}
+					        ORDER BY NUM DESC) C)
+					WHERE R BETWEEN #{startRow} AND #{lastRow} 
+					
+		    	</select>
+		    	
+		    	
+		    	
+		  	  	<insert id="setAdd" parameterType="BankBookCommentDTO">
+		  	  		<selectKey order="BEFORE" keyProperty="num" resultType="Long">
+                  		SELECT BOARD_SEQ.NEXTVAL FROM DUAL
+             	 	 </selectKey>
+		  	  	
+		    		insert into bankbookcomment values (#{num},#{bookNum},#{writer},sysdate,#{contents})
+		    		<!-- insert into bankbookcomment values (board_seq.nextval,9,'test',sysdate,'test'); -->
+		    	</insert>
+		    	
+		    	<delete id="setDelete" parameterType="BankBookCommentDTO">
+		    		DELETE bankbookcomment WHERE num = #{num}
+		    		<!-- DELETE bankbookcomment WHERE num = 22; -->
+		    	</delete>
+		    	
+		    	<update id="setUpdate" parameterType="BankBookCommentDTO">
+		    	
+		    		update bankbookcomment set bankbookcomment.contents = #{contents} where num = #{num}
+		    	</update>
+		    	
+		    	
+		    	<!-- update bankbookcomment set bankbookcomment.comments = 'hi' where num = 42; -->
+		    
+		    
+		    </mapper>
